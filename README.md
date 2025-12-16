@@ -46,17 +46,64 @@ your_private_key_content_here
 
 ### Production Deployment (Cloudflare Pages)
 
-Set your environment variables using the Cloudflare dashboard or CLI:
+#### Step 1: Set Environment Variables
+
+Set your secrets using wrangler CLI (recommended):
 
 ```bash
-# Using wrangler CLI
-wrangler pages secret put GOOGLE_SHEETS_SPREADSHEET_ID
-wrangler pages secret put GOOGLE_SHEETS_API_KEY
+# For Service Account Authentication
+npx wrangler pages secret put GOOGLE_SHEETS_SPREADSHEET_ID
+npx wrangler pages secret put GOOGLE_SERVICE_ACCOUNT_EMAIL
+npx wrangler pages secret put GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY
+
+# OR for API Key Authentication
+npx wrangler pages secret put GOOGLE_SHEETS_SPREADSHEET_ID
+npx wrangler pages secret put GOOGLE_SHEETS_API_KEY
 ```
 
 Or via Cloudflare Dashboard:
 1. Go to Pages → Your Site → Settings → Environment Variables
 2. Add your production secrets
+
+#### Step 2: Authenticate with Cloudflare
+
+First time setup - authenticate with Cloudflare:
+
+```bash
+# Login to Cloudflare
+npx wrangler login
+
+# Verify authentication
+npx wrangler whoami
+```
+
+#### Step 3: Deploy to Cloudflare Pages
+
+```bash
+# Deploy to production
+npm run pages:deploy
+
+# Deploy to preview environment
+npm run pages:preview
+
+# Or deploy manually with specific project name
+npx wrangler pages deploy .vercel/output/static --project-name wisegave-ai
+```
+
+The deployment process automatically:
+1. Builds the Next.js application
+2. Optimizes for Cloudflare Pages Edge Runtime
+3. Deploys static assets and functions to `.vercel/output/static`
+4. Configures routes and edge functions
+5. Uploads all necessary assets to Cloudflare Pages
+
+#### Troubleshooting Deployment
+
+If you get static assets errors:
+1. Ensure you've run `npm run pages:build` first
+2. Check that `.vercel/output/static` directory exists
+3. Verify your `wrangler.toml` configuration
+4. Make sure you're authenticated with `npx wrangler login`
 
 ### Google Sheets Setup
 

@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "npx @cloudflare/next-on-pages"
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:deploy": "npm run pages:build && npx wrangler pages deploy .vercel/output/static",
+    "pages:preview": "npm run pages:build && npx wrangler pages deploy .vercel/output/static --preview"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",
