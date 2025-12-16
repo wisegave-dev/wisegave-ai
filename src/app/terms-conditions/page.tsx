@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 
+export const runtime = "edge";
+
 export default function TermsConditions() {
   return (
     <div className="min-h-screen bg-gray-950 text-white pt-24 pb-16">

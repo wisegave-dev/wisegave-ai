@@ -1,33 +1,35 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { industries } from '@/data/industries';
-import { Check, ArrowRight, Mail, Building, Globe, MapPin } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { useParams, useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { motion } from "framer-motion";
+import { industries } from "@/data/industries";
+import { Check, ArrowRight, Mail, Building, Globe, MapPin } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
+
+export const runtime = "edge";
 
 export default function IndustryPage() {
   const params = useParams();
   const router = useRouter();
   const [formData, setFormData] = useState({
-    email: '',
-    businessName: '',
-    website: '',
-    country: '',
-    businessIdea: ''
+    email: "",
+    businessName: "",
+    website: "",
+    country: "",
+    businessIdea: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const industryId = params.industryId as string;
-  const industry = industries.find(i => i.id === industryId);
-  const isOther = industryId === 'other';
+  const industry = industries.find((i) => i.id === industryId);
+  const isOther = industryId === "other";
 
   useEffect(() => {
     if (!industry && !isOther) {
-      router.push('/');
+      router.push("/");
     }
   }, [industry, isOther, router]);
 
@@ -38,18 +40,18 @@ export default function IndustryPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
       // Submit to API
-      const response = await fetch('/api/submit-form', {
-        method: 'POST',
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           ...formData,
-          industry: isOther ? 'Other' : industry?.name,
+          industry: isOther ? "Other" : industry?.name,
         }),
       });
 
@@ -58,20 +60,22 @@ export default function IndustryPage() {
       if (response.ok) {
         setSubmitted(true);
       } else {
-        setError(result.message || 'Failed to submit form. Please try again.');
+        setError(result.message || "Failed to submit form. Please try again.");
       }
     } catch (err) {
-      setError('An error occurred. Please try again.');
-      console.error('Form submission error:', err);
+      setError("An error occurred. Please try again.");
+      console.error("Form submission error:", err);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -79,7 +83,10 @@ export default function IndustryPage() {
     <div className="min-h-screen bg-gray-950 text-white pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Button */}
-        <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors"
+        >
           ← Back to Home
         </Link>
 
@@ -94,7 +101,9 @@ export default function IndustryPage() {
             </div>
             <h2 className="text-4xl mb-4">Thank You!</h2>
             <p className="text-xl text-gray-400 mb-8">
-              We've received your request. Our team will contact you within 24 hours to discuss how WiseGave AI can transform your {industry?.name || 'business'}.
+              We've received your request. Our team will contact you within 24
+              hours to discuss how WiseGave AI can transform your{" "}
+              {industry?.name || "business"}.
             </p>
             <Link
               href="/"
@@ -114,16 +123,19 @@ export default function IndustryPage() {
             >
               <h1 className="text-5xl md:text-6xl mb-6">
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  {isOther ? 'Tell Us About Your Business' : industry.name}
+                  {isOther
+                    ? "Tell Us About Your Business"
+                    : industry?.name ?? ""}
                 </span>
               </h1>
-              {!isOther && (
+              {!isOther && industry && (
                 <>
                   <p className="text-xl text-gray-300 mb-4">
                     AI-Powered Automation for {industry.name}
                   </p>
                   <p className="text-gray-400 max-w-3xl mx-auto">
-                    Transform your {industry.name.toLowerCase()} business with intelligent automation
+                    Transform your {industry.name.toLowerCase()} business with
+                    intelligent automation
                   </p>
                 </>
               )}
@@ -142,7 +154,9 @@ export default function IndustryPage() {
                     <Check className="w-6 h-6 text-blue-400" />
                     Your Services
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">{industry.services}</p>
+                  <p className="text-gray-300 leading-relaxed">
+                    {industry?.services ?? ""}
+                  </p>
                 </motion.div>
 
                 {/* Automation Needs */}
@@ -156,7 +170,9 @@ export default function IndustryPage() {
                     <Check className="w-6 h-6 text-purple-400" />
                     Automation Solutions
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">{industry.automationNeeds}</p>
+                  <p className="text-gray-300 leading-relaxed">
+                    {industry?.automationNeeds ?? ""}
+                  </p>
                 </motion.div>
               </div>
             )}
@@ -170,13 +186,14 @@ export default function IndustryPage() {
             >
               <div className="bg-gray-800/50 p-8 md:p-12 rounded-2xl border border-gray-700">
                 <h2 className="text-3xl mb-6 text-center">
-                  {isOther ? 'Share Your Business Details' : 'Get Started Today'}
+                  {isOther
+                    ? "Share Your Business Details"
+                    : "Get Started Today"}
                 </h2>
                 <p className="text-gray-400 text-center mb-8">
                   {isOther
-                    ? 'Tell us about your business and we\'ll create a custom solution for you'
-                    : 'Book a demo or submit your request and our team will contact you within 24 hours'
-                  }
+                    ? "Tell us about your business and we'll create a custom solution for you"
+                    : "Book a demo or submit your request and our team will contact you within 24 hours"}
                 </p>
 
                 {/* CTA Buttons */}
@@ -189,7 +206,11 @@ export default function IndustryPage() {
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                   <button
-                    onClick={() => document.getElementById('request-form')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() =>
+                      document
+                        .getElementById("request-form")
+                        ?.scrollIntoView({ behavior: "smooth" })
+                    }
                     className="flex-1 bg-gray-700 hover:bg-gray-600 text-white px-6 py-4 rounded-lg transition-colors text-center"
                   >
                     Submit Request Form
@@ -197,7 +218,10 @@ export default function IndustryPage() {
                 </div>
 
                 {/* Request Form */}
-                <div id="request-form" className="border-t border-gray-700 pt-8">
+                <div
+                  id="request-form"
+                  className="border-t border-gray-700 pt-8"
+                >
                   <h3 className="text-xl mb-6">Request Form</h3>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {isOther && (

@@ -6,6 +6,8 @@ import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { CustomerJourneySection } from "@/components/home/CustomerJourneySection";
 
+export const runtime = "edge";
+
 export default function Home() {
   return (
     <div className="bg-gray-950 text-white">

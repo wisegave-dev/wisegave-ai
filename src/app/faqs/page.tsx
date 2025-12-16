@@ -1,75 +1,93 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
+
+export const runtime = "edge";
 
 const faqs = [
   {
-    question: 'What is WiseGave AI?',
-    answer: 'WiseGave AI is an advanced AI-powered automation platform that transforms how businesses interact with their customers. Our suite includes Voice AI, Conversation AI, and the WiseGave AI Employee to handle customer service, lead qualification, appointment scheduling, and more.'
+    question: "What is WiseGave AI?",
+    answer:
+      "WiseGave AI is an advanced AI-powered automation platform that transforms how businesses interact with their customers. Our suite includes Voice AI, Conversation AI, and the WiseGave AI Employee to handle customer service, lead qualification, appointment scheduling, and more.",
   },
   {
-    question: 'How quickly can I get started?',
-    answer: 'We offer a done-for-you AI setup that is completed within 24 hours. Our team handles all the technical configuration and integration, so you can start benefiting from AI automation immediately.'
+    question: "How quickly can I get started?",
+    answer:
+      "We offer a done-for-you AI setup that is completed within 24 hours. Our team handles all the technical configuration and integration, so you can start benefiting from AI automation immediately.",
   },
   {
-    question: 'What is included in the pricing?',
-    answer: 'Our pricing includes Voice AI with unlimited call handling, Conversation AI across all channels, WiseGave AI Employee automation, complete setup within 24 hours, dedicated Success Manager, lead management, automated scheduling, multi-channel customer engagement, and 24/7 priority support.'
+    question: "What is included in the pricing?",
+    answer:
+      "Our pricing includes Voice AI with unlimited call handling, Conversation AI across all channels, WiseGave AI Employee automation, complete setup within 24 hours, dedicated Success Manager, lead management, automated scheduling, multi-channel customer engagement, and 24/7 priority support.",
   },
   {
-    question: 'Is there a money-back guarantee?',
-    answer: 'Yes! We offer an 85% money-back guarantee within 7 days if you\'re not satisfied. This gives you a risk-free opportunity to experience the transformative power of WiseGave AI.'
+    question: "Is there a money-back guarantee?",
+    answer:
+      "Yes! We offer an 85% money-back guarantee within 7 days if you're not satisfied. This gives you a risk-free opportunity to experience the transformative power of WiseGave AI.",
   },
   {
-    question: 'Are there any long-term contracts?',
-    answer: 'No. We believe in earning your business every month. You can cancel anytime without penalties or long-term commitments. We offer flexible monthly and annual subscription options.'
+    question: "Are there any long-term contracts?",
+    answer:
+      "No. We believe in earning your business every month. You can cancel anytime without penalties or long-term commitments. We offer flexible monthly and annual subscription options.",
   },
   {
-    question: 'What channels does Conversation AI support?',
-    answer: 'Our Conversation AI works seamlessly across multiple channels including phone calls, SMS, email, social media (Facebook, Instagram, Twitter), live chat, and more. All conversations are managed from a single intelligent system.'
+    question: "What channels does Conversation AI support?",
+    answer:
+      "Our Conversation AI works seamlessly across multiple channels including phone calls, SMS, email, social media (Facebook, Instagram, Twitter), live chat, and more. All conversations are managed from a single intelligent system.",
   },
   {
-    question: 'How does the Voice AI handle complex conversations?',
-    answer: 'Our Voice AI uses advanced natural language processing to understand context and intent. It can handle complex, multi-turn conversations, qualify leads, schedule appointments, answer FAQs, and route calls to human agents when necessary.'
+    question: "How does the Voice AI handle complex conversations?",
+    answer:
+      "Our Voice AI uses advanced natural language processing to understand context and intent. It can handle complex, multi-turn conversations, qualify leads, schedule appointments, answer FAQs, and route calls to human agents when necessary.",
   },
   {
-    question: 'Can WiseGave AI integrate with my existing systems?',
-    answer: 'Yes! WiseGave AI can integrate with most popular CRM systems, calendar applications, booking platforms, and business tools. Our team handles all integration work during the setup process.'
+    question: "Can WiseGave AI integrate with my existing systems?",
+    answer:
+      "Yes! WiseGave AI can integrate with most popular CRM systems, calendar applications, booking platforms, and business tools. Our team handles all integration work during the setup process.",
   },
   {
-    question: 'What kind of support do you provide?',
-    answer: 'Every customer gets a dedicated Success Manager who assists with onboarding and ongoing optimization. We also provide 24/7 priority support via email, phone, and chat to ensure your AI systems run smoothly.'
+    question: "What kind of support do you provide?",
+    answer:
+      "Every customer gets a dedicated Success Manager who assists with onboarding and ongoing optimization. We also provide 24/7 priority support via email, phone, and chat to ensure your AI systems run smoothly.",
   },
   {
-    question: 'How does WiseGave AI learn about my business?',
-    answer: 'During onboarding, we work with you to understand your business, services, common customer questions, and workflows. The AI is then trained specifically for your business context and continues to improve through machine learning as it handles more interactions.'
+    question: "How does WiseGave AI learn about my business?",
+    answer:
+      "During onboarding, we work with you to understand your business, services, common customer questions, and workflows. The AI is then trained specifically for your business context and continues to improve through machine learning as it handles more interactions.",
   },
   {
-    question: 'What industries do you serve?',
-    answer: 'We serve 30+ industries including plumbing, HVAC, cleaning services, landscaping, construction, healthcare, professional services, and more. If your industry isn\'t listed, we can create a custom solution for you.'
+    question: "What industries do you serve?",
+    answer:
+      "We serve 30+ industries including plumbing, HVAC, cleaning services, landscaping, construction, healthcare, professional services, and more. If your industry isn't listed, we can create a custom solution for you.",
   },
   {
-    question: 'How much can I save with WiseGave AI?',
-    answer: 'Our customers typically see 50-80% reduction in customer service costs while handling 3-5x more customer interactions. ROI is often achieved within the first month of operation.'
+    question: "How much can I save with WiseGave AI?",
+    answer:
+      "Our customers typically see 50-80% reduction in customer service costs while handling 3-5x more customer interactions. ROI is often achieved within the first month of operation.",
   },
   {
-    question: 'Is my data secure?',
-    answer: 'Absolutely. We use enterprise-grade security, end-to-end encryption, and comply with all major data protection regulations including GDPR. Your business and customer data is never shared or used for any purpose beyond serving your business needs.'
+    question: "Is my data secure?",
+    answer:
+      "Absolutely. We use enterprise-grade security, end-to-end encryption, and comply with all major data protection regulations including GDPR. Your business and customer data is never shared or used for any purpose beyond serving your business needs.",
   },
   {
-    question: 'Can I customize the AI\'s responses?',
-    answer: 'Yes! Your Success Manager will work with you to customize responses, conversation flows, and behaviors to match your brand voice and business requirements. You have full control over how the AI represents your business.'
+    question: "Can I customize the AI's responses?",
+    answer:
+      "Yes! Your Success Manager will work with you to customize responses, conversation flows, and behaviors to match your brand voice and business requirements. You have full control over how the AI represents your business.",
   },
   {
-    question: 'What happens if the AI can\'t handle a conversation?',
-    answer: 'The AI is designed to recognize when a conversation requires human intervention. It can seamlessly transfer calls or conversations to your team with full context and conversation history.'
+    question: "What happens if the AI can't handle a conversation?",
+    answer:
+      "The AI is designed to recognize when a conversation requires human intervention. It can seamlessly transfer calls or conversations to your team with full context and conversation history.",
   },
   {
-    question: 'Do you offer a demo?',
-    answer: 'Yes! You can book a personalized demo where we\'ll show you exactly how WiseGave AI can work for your specific business. The demo includes a live walkthrough of the features most relevant to your industry.'
-  }
+    question: "Do you offer a demo?",
+    answer:
+      "Yes! You can book a personalized demo where we'll show you exactly how WiseGave AI can work for your specific business. The demo includes a live walkthrough of the features most relevant to your industry.",
+  },
 ];
 
 export default function FAQPage() {
@@ -86,7 +104,10 @@ export default function FAQPage() {
           className="text-center mb-16"
         >
           <h1 className="text-5xl md:text-6xl mb-6">
-            Frequently Asked <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Questions</span>
+            Frequently Asked{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Questions
+            </span>
           </h1>
           <p className="text-xl text-gray-400">
             Everything you need to know about WiseGave AI
@@ -110,14 +131,14 @@ export default function FAQPage() {
                 <span className="text-lg pr-8">{faq.question}</span>
                 <ChevronDown
                   className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform ${
-                    openIndex === index ? 'rotate-180' : ''
+                    openIndex === index ? "rotate-180" : ""
                   }`}
                 />
               </button>
               {openIndex === index && (
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
+                  animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                   className="px-6 pb-4"

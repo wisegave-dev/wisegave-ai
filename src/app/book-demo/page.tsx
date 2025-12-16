@@ -1,27 +1,40 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Calendar, Clock, Video } from 'lucide-react';
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import { Calendar, Clock, Video } from "lucide-react";
+import { useState } from "react";
+
+export const runtime = "edge";
+
+export async function GET(request: Request) {
+  return new Response("Hello, world!");
+}
 
 export default function BookingPage() {
-  const [selectedDate, setSelectedDate] = useState<string>('');
-  const [selectedTime, setSelectedTime] = useState<string>('');
+  const [selectedDate, setSelectedDate] = useState<string>("");
+  const [selectedTime, setSelectedTime] = useState<string>("");
   const [booked, setBooked] = useState(false);
 
   const availableDates = [
-    '2025-12-15',
-    '2025-12-16',
-    '2025-12-17',
-    '2025-12-18',
-    '2025-12-19',
-    '2025-12-22',
-    '2025-12-23'
+    "2025-12-15",
+    "2025-12-16",
+    "2025-12-17",
+    "2025-12-18",
+    "2025-12-19",
+    "2025-12-22",
+    "2025-12-23",
   ];
 
   const availableTimes = [
-    '09:00', '10:00', '11:00', '12:00',
-    '13:00', '14:00', '15:00', '16:00', '17:00'
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
   ];
 
   const handleBooking = () => {
@@ -33,7 +46,11 @@ export default function BookingPage() {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+    return date.toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+    });
   };
 
   if (booked) {
@@ -59,7 +76,9 @@ export default function BookingPage() {
             <ul className="text-left space-y-3 text-gray-300">
               <li className="flex items-start gap-3">
                 <Video className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
-                <span>We'll send you a calendar invite with a video meeting link</span>
+                <span>
+                  We'll send you a calendar invite with a video meeting link
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
@@ -92,10 +111,14 @@ export default function BookingPage() {
           className="text-center mb-12"
         >
           <h1 className="text-5xl md:text-6xl mb-6">
-            Book Your <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Demo</span>
+            Book Your{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Demo
+            </span>
           </h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Schedule a personalized demo to see how WiseGave AI can transform your business
+            Schedule a personalized demo to see how WiseGave AI can transform
+            your business
           </p>
         </motion.div>
 
@@ -118,8 +141,8 @@ export default function BookingPage() {
                   onClick={() => setSelectedDate(date)}
                   className={`w-full p-4 rounded-lg text-left transition-all ${
                     selectedDate === date
-                      ? 'bg-blue-600 border-2 border-blue-400'
-                      : 'bg-gray-700/50 border-2 border-gray-600 hover:border-gray-500'
+                      ? "bg-blue-600 border-2 border-blue-400"
+                      : "bg-gray-700/50 border-2 border-gray-600 hover:border-gray-500"
                   }`}
                 >
                   {formatDate(date)}
@@ -147,8 +170,8 @@ export default function BookingPage() {
                     onClick={() => setSelectedTime(time)}
                     className={`p-3 rounded-lg transition-all ${
                       selectedTime === time
-                        ? 'bg-purple-600 border-2 border-purple-400'
-                        : 'bg-gray-700/50 border-2 border-gray-600 hover:border-gray-500'
+                        ? "bg-purple-600 border-2 border-purple-400"
+                        : "bg-gray-700/50 border-2 border-gray-600 hover:border-gray-500"
                     }`}
                   >
                     {time}
@@ -198,11 +221,15 @@ export default function BookingPage() {
           <ul className="space-y-2 text-gray-300">
             <li className="flex items-start gap-3">
               <span className="text-blue-400 mt-1">✓</span>
-              <span>How Voice AI and Conversation AI work for your specific industry</span>
+              <span>
+                How Voice AI and Conversation AI work for your specific industry
+              </span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-blue-400 mt-1">✓</span>
-              <span>Live demonstration of WiseGave AI Employee capabilities</span>
+              <span>
+                Live demonstration of WiseGave AI Employee capabilities
+              </span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-blue-400 mt-1">✓</span>
