@@ -1,22 +1,148 @@
-// Configure Google Sheets with API key (simpler approach for Edge Runtime)
+// Configure Google Sheets with environment variables
 const SPREADSHEET_ID = process.env.GOOGLE_SHEETS_SPREADSHEET_ID || '';
+
+// Try API key first (simpler), fallback to service account if needed
 const API_KEY = process.env.GOOGLE_SHEETS_API_KEY || '';
+const SERVICE_ACCOUNT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL || '';
+const SERVICE_ACCOUNT_PRIVATE_KEY = process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY || '';
 
-// Simple approach using API key for public sheets or OAuth2 for private sheets
+// Get authentication token (API key or service account)
 async function getGoogleSheetsToken() {
-  // For this implementation, we'll use API key approach
-  // Note: This works if the spreadsheet is shared with "Anyone with the link"
-  // For private sheets, you'd need to implement OAuth2 flow or use service account
-
-  if (!API_KEY) {
-    throw new Error('Google Sheets API key not found in environment variables');
+  // First try API key approach (simpler and works for publicly accessible sheets)
+  if (API_KEY) {
+    return API_KEY;
   }
 
-  return API_KEY;
+  // Fallback to service account if API key not available
+  if (SERVICE_ACCOUNT_EMAIL && SERVICE_ACCOUNT_PRIVATE_KEY) {
+    console.log('Using service account authentication');
+    return await getServiceAccountToken();
+  }
+
+  throw new Error('No Google Sheets authentication configured. Please set GOOGLE_SHEETS_API_KEY or service account credentials.');
+}
+
+// Service account JWT implementation for Edge Runtime
+async function getServiceAccountToken(): Promise<string> {
+  try {
+    // Clean up the private key format
+    const cleanPrivateKey = SERVICE_ACCOUNT_PRIVATE_KEY
+      .replace(/-----BEGIN PRIVATE KEY-----/g, '')
+      .replace(/-----END PRIVATE KEY-----/g, '')
+      .replace(/\s/g, '')
+      .replace(/\\n/g, '');
+
+    // Create JWT header
+    const header = {
+      alg: 'RS256',
+      typ: 'JWT'
+    };
+
+    // Create JWT payload
+    const now = Math.floor(Date.now() / 1000);
+    const payload = {
+      iss: SERVICE_ACCOUNT_EMAIL,
+      scope: 'https://www.googleapis.com/auth/spreadsheets',
+      aud: 'https://oauth2.googleapis.com/token',
+      exp: now + 3600, // 1 hour expiration
+      iat: now
+    };
+
+    // Helper function to base64url encode
+    function base64urlEncode(str: string) {
+      return btoa(str)
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=/g, '');
+    }
+
+    // Create JWT signature
+    const encodedHeader = base64urlEncode(JSON.stringify(header));
+    const encodedPayload = base64urlEncode(JSON.stringify(payload));
+    const signatureInput = `${encodedHeader}.${encodedPayload}`;
+
+    // Convert PEM private key to binary format for Web Crypto API
+    const pemHeader = '-----BEGIN PRIVATE KEY-----';
+    const pemFooter = '-----END PRIVATE KEY-----';
+
+    // Remove headers, footers, and whitespace
+    const pemContents = SERVICE_ACCOUNT_PRIVATE_KEY
+      .replace(pemHeader, '')
+      .replace(pemFooter, '')
+      .replace(/\\n/g, '')
+      .replace(/\s/g, '');
+
+    // Decode base64 to get binary data
+    let binaryDer;
+    try {
+      binaryDer = Uint8Array.from(atob(pemContents), c => c.charCodeAt(0));
+    } catch (error) {
+      console.error('Base64 decode error:', error);
+      throw new Error('Failed to decode private key');
+    }
+
+    // Import the private key
+    let privateKey;
+    try {
+      privateKey = await crypto.subtle.importKey(
+        'pkcs8',
+        binaryDer.buffer,
+        {
+          name: 'RSASSA-PKCS1-v1_5',
+          hash: { name: 'SHA-256' },
+        },
+        false,
+        ['sign']
+      );
+    } catch (error) {
+      console.error('Key import error:', error);
+      throw new Error('Failed to import private key');
+    }
+
+    // Sign the JWT
+    const signature = await crypto.subtle.sign(
+      'RSASSA-PKCS1-v1_5',
+      privateKey,
+      new TextEncoder().encode(signatureInput)
+    );
+
+    const encodedSignature = base64urlEncode(
+      String.fromCharCode(...new Uint8Array(signature))
+    );
+
+    const jwt = `${signatureInput}.${encodedSignature}`;
+
+    // Exchange JWT for access token
+    const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+        assertion: jwt,
+      }),
+    });
+
+    if (!tokenResponse.ok) {
+      const errorData = await tokenResponse.text();
+      console.error('Token exchange error:', errorData);
+      throw new Error(`Failed to get access token: ${errorData}`);
+    }
+
+    const tokenData = await tokenResponse.json();
+    return tokenData.access_token;
+  } catch (error) {
+    console.error('Service account authentication error:', error);
+    throw new Error('Failed to authenticate with service account');
+  }
 }
 
 export async function appendToSheet(data: Record<string, any>) {
-  const apiKey = await getGoogleSheetsToken();
+  const token = await getGoogleSheetsToken();
+
+  // Check if using API key or service account token
+  const isApiKey = API_KEY && token === API_KEY;
 
   // Prepare the row data
   const rowValues = [
@@ -33,13 +159,16 @@ export async function appendToSheet(data: Record<string, any>) {
 
   // Check if sheet has headers by reading the first row
   const range = 'Sheet1!A1:I1';
-  const checkUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}?key=${apiKey}`;
+  const checkUrl = isApiKey
+    ? `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}?key=${token}`
+    : `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}`;
 
   try {
     const checkResponse = await fetch(checkUrl, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        ...(isApiKey ? {} : { 'Authorization': `Bearer ${token}` })
       }
     });
 
@@ -54,12 +183,15 @@ export async function appendToSheet(data: Record<string, any>) {
         ['Timestamp', 'Industry', 'Business Idea', 'Email', 'Business Name', 'Website', 'Country', 'IP Address', 'User Agent']
       ];
 
-      const headerUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A1:I1?valueInputOption=USER_ENTERED&key=${apiKey}`;
+      const headerUrl = isApiKey
+        ? `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A1:I1?valueInputOption=USER_ENTERED&key=${token}`
+        : `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A1:I1?valueInputOption=USER_ENTERED`;
 
       await fetch(headerUrl, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          ...(isApiKey ? {} : { 'Authorization': `Bearer ${token}` })
         },
         body: JSON.stringify({
           values: headers
@@ -68,12 +200,15 @@ export async function appendToSheet(data: Record<string, any>) {
     }
 
     // Append the new row
-    const appendUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A:I:append?valueInputOption=USER_ENTERED&key=${apiKey}`;
+    const appendUrl = isApiKey
+      ? `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A:I:append?valueInputOption=USER_ENTERED&key=${token}`
+      : `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A:I:append?valueInputOption=USER_ENTERED`;
 
     const response = await fetch(appendUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        ...(isApiKey ? {} : { 'Authorization': `Bearer ${token}` })
       },
       body: JSON.stringify({
         values: [rowValues]
