@@ -1,43 +1,22 @@
-import { JWT } from 'google-auth-library';
-import fs from 'fs';
-import path from 'path';
-
-// Configure Google Sheets with service account key file
-// Using your existing setup with key file
-
+// Configure Google Sheets with API key (simpler approach for Edge Runtime)
 const SPREADSHEET_ID = process.env.GOOGLE_SHEETS_SPREADSHEET_ID || '';
-const SERVICE_ACCOUNT_KEY_FILE = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_FILE || '';
+const API_KEY = process.env.GOOGLE_SHEETS_API_KEY || '';
 
-// Read and parse the service account key file
-function getServiceAccountCredentials() {
-  try {
-    const keyFile = fs.readFileSync(path.resolve(process.cwd(), SERVICE_ACCOUNT_KEY_FILE), 'utf8');
-    return JSON.parse(keyFile);
-  } catch (error) {
-    throw new Error('Failed to read service account key file');
-  }
-}
-
-// Get JWT token for Google Sheets API
+// Simple approach using API key for public sheets or OAuth2 for private sheets
 async function getGoogleSheetsToken() {
-  try {
-    const credentials = getServiceAccountCredentials();
-    const jwt = new JWT({
-      email: credentials.client_email,
-      key: credentials.private_key,
-      scopes: ['https://www.googleapis.com/auth/spreadsheets']
-    });
+  // For this implementation, we'll use API key approach
+  // Note: This works if the spreadsheet is shared with "Anyone with the link"
+  // For private sheets, you'd need to implement OAuth2 flow or use service account
 
-    const token = await jwt.authorize();
-    return token.access_token;
-  } catch (error) {
-    console.error('Error getting Google Sheets token:', error);
-    throw new Error('Failed to authenticate with Google Sheets');
+  if (!API_KEY) {
+    throw new Error('Google Sheets API key not found in environment variables');
   }
+
+  return API_KEY;
 }
 
 export async function appendToSheet(data: Record<string, any>) {
-  const token = await getGoogleSheetsToken();
+  const apiKey = await getGoogleSheetsToken();
 
   // Prepare the row data
   const rowValues = [
@@ -54,13 +33,12 @@ export async function appendToSheet(data: Record<string, any>) {
 
   // Check if sheet has headers by reading the first row
   const range = 'Sheet1!A1:I1';
-  const checkUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}`;
+  const checkUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}?key=${apiKey}`;
 
   try {
     const checkResponse = await fetch(checkUrl, {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       }
     });
@@ -76,12 +54,11 @@ export async function appendToSheet(data: Record<string, any>) {
         ['Timestamp', 'Industry', 'Business Idea', 'Email', 'Business Name', 'Website', 'Country', 'IP Address', 'User Agent']
       ];
 
-      const headerUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A1:I1?valueInputOption=USER_ENTERED`;
+      const headerUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A1:I1?valueInputOption=USER_ENTERED&key=${apiKey}`;
 
       await fetch(headerUrl, {
         method: 'PUT',
         headers: {
-          'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -91,12 +68,11 @@ export async function appendToSheet(data: Record<string, any>) {
     }
 
     // Append the new row
-    const appendUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A:I:append?valueInputOption=USER_ENTERED`;
+    const appendUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A:I:append?valueInputOption=USER_ENTERED&key=${apiKey}`;
 
     const response = await fetch(appendUrl, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
