@@ -6,10 +6,6 @@ import { useState } from "react";
 
 export const runtime = "edge";
 
-export async function GET(request: Request) {
-  return new Response("Hello, world!");
-}
-
 export default function BookingPage() {
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [selectedTime, setSelectedTime] = useState<string>("");
