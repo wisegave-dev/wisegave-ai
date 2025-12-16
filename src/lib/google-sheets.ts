@@ -25,12 +25,24 @@ async function getGoogleSheetsToken() {
 // Service account JWT implementation for Edge Runtime
 async function getServiceAccountToken(): Promise<string> {
   try {
-    // Clean up the private key format
-    const cleanPrivateKey = SERVICE_ACCOUNT_PRIVATE_KEY
+    // Clean up the private key format - handle both \n and actual newlines
+    let privateKeyStr = SERVICE_ACCOUNT_PRIVATE_KEY;
+
+    // Remove quotes if the value is quoted
+    if (privateKeyStr.startsWith('"') && privateKeyStr.endsWith('"')) {
+      privateKeyStr = privateKeyStr.slice(1, -1);
+    }
+
+    // Replace \n with actual newlines and remove headers/footers
+    const pemContents = privateKeyStr
+      .replace(/\\n/g, '\n')
       .replace(/-----BEGIN PRIVATE KEY-----/g, '')
       .replace(/-----END PRIVATE KEY-----/g, '')
-      .replace(/\s/g, '')
-      .replace(/\\n/g, '');
+      .replace(/^\s+|\s+$/g, '') // trim start and end
+      .replace(/\n/g, '')
+      .replace(/\s/g, '');
+
+    console.log('Processing private key, length:', pemContents.length);
 
     // Create JWT header
     const header = {
@@ -61,56 +73,82 @@ async function getServiceAccountToken(): Promise<string> {
     const encodedPayload = base64urlEncode(JSON.stringify(payload));
     const signatureInput = `${encodedHeader}.${encodedPayload}`;
 
-    // Convert PEM private key to binary format for Web Crypto API
-    const pemHeader = '-----BEGIN PRIVATE KEY-----';
-    const pemFooter = '-----END PRIVATE KEY-----';
-
-    // Remove headers, footers, and whitespace
-    const pemContents = SERVICE_ACCOUNT_PRIVATE_KEY
-      .replace(pemHeader, '')
-      .replace(pemFooter, '')
-      .replace(/\\n/g, '')
-      .replace(/\s/g, '');
-
-    // Decode base64 to get binary data
+    // Decode base64 to get binary data - more robust approach
     let binaryDer;
     try {
+      // Try standard atob first
       binaryDer = Uint8Array.from(atob(pemContents), c => c.charCodeAt(0));
     } catch (error) {
-      console.error('Base64 decode error:', error);
-      throw new Error('Failed to decode private key');
+      console.error('Standard base64 decode failed, trying fallback:', error);
+      try {
+        // Fallback: try decode from Buffer-like approach
+        const decoded = typeof Buffer !== 'undefined'
+          ? Buffer.from(pemContents, 'base64')
+          : Uint8Array.from(Array.from(pemContents, c => c.charCodeAt(0)));
+        binaryDer = new Uint8Array(decoded);
+      } catch (fallbackError) {
+        console.error('Fallback decode also failed:', fallbackError);
+        throw new Error(`Failed to decode private key: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      }
     }
 
-    // Import the private key
-    let privateKey;
-    try {
-      privateKey = await crypto.subtle.importKey(
-        'pkcs8',
-        binaryDer.buffer,
-        {
-          name: 'RSASSA-PKCS1-v1_5',
-          hash: { name: 'SHA-256' },
-        },
-        false,
-        ['sign']
-      );
-    } catch (error) {
-      console.error('Key import error:', error);
-      throw new Error('Failed to import private key');
+    console.log('Binary key length:', binaryDer.length);
+
+    // Import the private key with multiple algorithm attempts
+    let privateKey: CryptoKey | undefined;
+    const keyFormats = [
+      {
+        name: 'RSASSA-PKCS1-v1_5',
+        hash: { name: 'SHA-256' },
+      },
+      {
+        name: 'RSASSA-PKCS1-v1_5',
+        hash: 'SHA-256',
+      }
+    ];
+
+    for (const format of keyFormats) {
+      try {
+        privateKey = await crypto.subtle.importKey(
+          'pkcs8',
+          binaryDer.buffer,
+          format,
+          false,
+          ['sign']
+        );
+        console.log('Key imported successfully with format:', format.name);
+        break;
+      } catch (error) {
+        console.log('Key format failed, trying next:', format.name, error instanceof Error ? error.message : 'Unknown error');
+        if (format === keyFormats[keyFormats.length - 1]) {
+          throw new Error(`All key import formats failed. Last error: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+      }
+    }
+
+    if (!privateKey) {
+      throw new Error('Failed to import private key with any format');
     }
 
     // Sign the JWT
-    const signature = await crypto.subtle.sign(
-      'RSASSA-PKCS1-v1_5',
-      privateKey,
-      new TextEncoder().encode(signatureInput)
-    );
+    let signature;
+    try {
+      signature = await crypto.subtle.sign(
+        'RSASSA-PKCS1-v1_5',
+        privateKey,
+        new TextEncoder().encode(signatureInput)
+      );
+    } catch (error) {
+      console.error('JWT signing failed:', error);
+      throw new Error(`Failed to sign JWT: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
 
     const encodedSignature = base64urlEncode(
       String.fromCharCode(...new Uint8Array(signature))
     );
 
     const jwt = `${signatureInput}.${encodedSignature}`;
+    console.log('JWT created successfully');
 
     // Exchange JWT for access token
     const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {
@@ -134,7 +172,7 @@ async function getServiceAccountToken(): Promise<string> {
     return tokenData.access_token;
   } catch (error) {
     console.error('Service account authentication error:', error);
-    throw new Error('Failed to authenticate with service account');
+    throw new Error(`Failed to authenticate with service account: ${error instanceof Error ? error.message : 'Unknown error'}`);
   }
 }
 
