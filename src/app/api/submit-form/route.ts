@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { appendToSheet } from "@/lib/google-sheets";
 import { z } from "zod";
 
+export const runtime = "edge";
+
 // Form validation schema
 const FormSchema = z.object({
   industry: z.string().optional(),
