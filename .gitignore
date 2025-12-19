@@ -148,6 +148,15 @@ vite.config.ts.timestamp-*
 .vercel/
 .vercel/output/
 
+# OpenNext build output
+.open-next/
+
+# Wrangler cache and state
+.wrangler/
+
+# Next.js auto-generated files
+next-env.d.ts
+
 # Build artifacts and temporary files
 *.tgz
 *.tar.gz

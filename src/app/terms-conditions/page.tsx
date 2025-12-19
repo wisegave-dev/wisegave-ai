@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
+"use client";
 
-export const runtime = "edge";
+import { motion } from 'framer-motion';
 
 export default function TermsConditions() {
   return (

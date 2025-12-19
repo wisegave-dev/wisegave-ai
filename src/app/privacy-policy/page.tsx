@@ -1,7 +1,7 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Shield, Lock, UserCheck, AlertTriangle, Scale } from "lucide-react";
-
-export const runtime = "edge";
 
 export default function PrivacyPolicy() {
   return (

@@ -5,8 +5,6 @@ import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-export const runtime = "edge";
-
 const faqs = [
   {
     question: "What is WiseGave AI?",

@@ -7,8 +7,6 @@ import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 
-export const runtime = "edge";
-
 export default function IndustryPage() {
   const params = useParams();
   const router = useRouter();

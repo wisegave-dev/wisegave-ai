@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, Video } from "lucide-react";
 import { useState } from "react";
 
-export const runtime = "edge";
-
 export default function BookingPage() {
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [selectedTime, setSelectedTime] = useState<string>("");
