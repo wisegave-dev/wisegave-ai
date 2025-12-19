@@ -11,7 +11,7 @@
     "dev:worker": "wrangler dev --port 8771",
     "preview:worker": "npm run build:worker && npm run dev:worker",
     "deploy:worker": "npm run build:worker && wrangler deploy",
-    "deploy:staging": "npm run build:worker && wrangler deploy -e staging",
+    "deploy:staging": "node deploy-staging.js",
     "dev:staging": "wrangler dev --port 8772 --env staging"
   },
   "dependencies": {
