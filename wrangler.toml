@@ -4,3 +4,11 @@ compatibility_flags = ["nodejs_compat"]
 
 main = ".open-next/worker.js"
 assets = {directory = ".open-next/assets", binding = "ASSETS"}
+
+# Production environment (default)
+[env.production]
+name = "wisegave-ai"
+
+# Staging environment
+[env.staging]
+name = "wisegave-ai-staging"

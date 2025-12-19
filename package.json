@@ -10,7 +10,9 @@
     "build:worker": "npx @opennextjs/cloudflare build",
     "dev:worker": "wrangler dev --port 8771",
     "preview:worker": "npm run build:worker && npm run dev:worker",
-    "deploy:worker": "npm run build:worker && wrangler deploy"
+    "deploy:worker": "npm run build:worker && wrangler deploy",
+    "deploy:staging": "npm run build:worker && wrangler deploy -e staging",
+    "dev:staging": "wrangler dev --port 8772 --env staging"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",
