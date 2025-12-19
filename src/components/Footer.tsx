@@ -160,8 +160,7 @@ export function Footer() {
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} WiseGave AI. All rights reserved{" "}
-            {process.env.ENV}.
+            © {new Date().getFullYear()} WiseGave AI.
           </p>
         </div>
       </div>
