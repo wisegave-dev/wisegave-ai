@@ -1,6 +1,14 @@
-import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
-import logoImage from 'figma:asset/b441505fbcce46cae4da2ec137c01323befb8956.png';
+import { Link } from "react-router-dom";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
+import logoImage from "figma:asset/b441505fbcce46cae4da2ec137c01323befb8956.png";
 
 export function Footer() {
   return (
@@ -11,11 +19,14 @@ export function Footer() {
           <div>
             <img src={logoImage} alt="WiseGave AI" className="h-8 mb-4" />
             <p className="text-gray-400 mb-4">
-              Transforming the way businesses interact with their customers through AI-powered solutions.
+              Transforming the way businesses interact with their customers
+              through AI-powered solutions.
             </p>
             <div className="flex items-center gap-2 text-gray-400 mb-2">
               <MapPin className="w-4 h-4" />
-              <span className="text-sm">Sydney, NSW, Australia</span>
+              <span className="text-sm">
+                18 Bungay St, Fawkner 3060, Melbourne, Australia
+              </span>
             </div>
             <div className="flex items-center gap-2 text-gray-400 mb-2">
               <Phone className="w-4 h-4" />
@@ -25,7 +36,10 @@ export function Footer() {
             </div>
             <div className="flex items-center gap-2 text-gray-400">
               <Mail className="w-4 h-4" />
-              <a href="mailto:info@wisegave.ai" className="text-sm hover:text-white">
+              <a
+                href="mailto:info@wisegave.ai"
+                className="text-sm hover:text-white"
+              >
                 info@wisegave.ai
               </a>
             </div>
@@ -41,22 +55,34 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/faqs" className="text-gray-400 hover:text-white text-sm">
+                <Link
+                  to="/faqs"
+                  className="text-gray-400 hover:text-white text-sm"
+                >
                   FAQs
                 </Link>
               </li>
               <li>
-                <Link to="/book-demo" className="text-gray-400 hover:text-white text-sm">
+                <Link
+                  to="/book-demo"
+                  className="text-gray-400 hover:text-white text-sm"
+                >
                   Book a Demo
                 </Link>
               </li>
               <li>
-                <a href="#products" className="text-gray-400 hover:text-white text-sm">
+                <a
+                  href="#products"
+                  className="text-gray-400 hover:text-white text-sm"
+                >
                   Products
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="text-gray-400 hover:text-white text-sm">
+                <a
+                  href="#pricing"
+                  className="text-gray-400 hover:text-white text-sm"
+                >
                   Pricing
                 </a>
               </li>
@@ -68,12 +94,18 @@ export function Footer() {
             <h3 className="font-semibold text-white mb-4">Legal</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/privacy-policy" className="text-gray-400 hover:text-white text-sm">
+                <Link
+                  to="/privacy-policy"
+                  className="text-gray-400 hover:text-white text-sm"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/terms-conditions" className="text-gray-400 hover:text-white text-sm">
+                <Link
+                  to="/terms-conditions"
+                  className="text-gray-400 hover:text-white text-sm"
+                >
                   Terms & Conditions
                 </Link>
               </li>

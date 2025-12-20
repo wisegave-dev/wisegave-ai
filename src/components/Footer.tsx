@@ -29,7 +29,9 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-2 text-gray-400 mb-2">
               <MapPin className="w-4 h-4" />
-              <span className="text-sm">Sydney, NSW, Australia</span>
+              <span className="text-sm">
+                18 Bungay St, Fawkner 3060, Melbourne, Australia
+              </span>
             </div>
             <div className="flex items-center gap-2 text-gray-400 mb-2">
               <Phone className="w-4 h-4" />

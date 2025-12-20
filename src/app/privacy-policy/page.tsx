@@ -368,7 +368,7 @@ export default function PrivacyPolicy() {
                     +61 2 3456 7890
                   </a>
                 </p>
-                <p>Address: Sydney, NSW, Australia</p>
+                <p>Address: 18 Bungay St, Fawkner 3060, Melbourne, Australia</p>
               </div>
             </div>
           </div>

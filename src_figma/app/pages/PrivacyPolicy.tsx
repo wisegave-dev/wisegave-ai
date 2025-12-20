@@ -261,7 +261,7 @@ export function PrivacyPolicy() {
               <div className="space-y-2 text-gray-300">
                 <p>Email: <a href="mailto:privacy@wisegave.ai" className="text-blue-400 hover:text-blue-300">privacy@wisegave.ai</a></p>
                 <p>Phone: <a href="tel:+61234567890" className="text-blue-400 hover:text-blue-300">+61 2 3456 7890</a></p>
-                <p>Address: Sydney, NSW, Australia</p>
+                <p>18 Bungay St, Fawkner 3060, Melbourne, Australia</p>
               </div>
             </div>
           </div>
