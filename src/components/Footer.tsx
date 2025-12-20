@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import WisegaveLogo from "./icon/wisegave_logo";
 // Using placeholder instead of figma asset
+// KOWSHIK LEARNING VIBE CODING
 
 export function Footer() {
   return (
