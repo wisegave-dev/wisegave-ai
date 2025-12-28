@@ -1,18 +1,21 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { Check } from 'lucide-react';
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { Check } from "lucide-react";
 
 export function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(false);
 
-  const monthlyPrice = 999;
-  const annualPrice = 9990;
-  const savings = (monthlyPrice * 12) - annualPrice;
+  const monthlyPrice = 599;
+  const annualPrice = 5990;
+  const savings = monthlyPrice * 12 - annualPrice;
 
   return (
-    <section id="pricing" className="py-20 bg-gradient-to-b from-black via-[#1a1a1a] to-black">
+    <section
+      id="pricing"
+      className="py-20 bg-gradient-to-b from-black via-[#1a1a1a] to-black"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,10 +25,15 @@ export function PricingSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl mb-4">
-            Simple, <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Transparent</span> Pricing
+            Simple,{" "}
+            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              Transparent
+            </span>{" "}
+            Pricing
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Choose the plan that works best for your business. No hidden fees, cancel anytime.
+            Choose the plan that works best for your business. No hidden fees,
+            cancel anytime.
           </p>
 
           {/* Toggle */}
@@ -34,8 +42,8 @@ export function PricingSection() {
               onClick={() => setIsAnnual(false)}
               className={`px-6 py-2 rounded-lg transition-all ${
                 !isAnnual
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
-                  : 'text-gray-400 hover:text-white'
+                  ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
+                  : "text-gray-400 hover:text-white"
               }`}
             >
               Monthly
@@ -44,8 +52,8 @@ export function PricingSection() {
               onClick={() => setIsAnnual(true)}
               className={`px-6 py-2 rounded-lg transition-all flex items-center gap-2 ${
                 isAnnual
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
-                  : 'text-gray-400 hover:text-white'
+                  ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
+                  : "text-gray-400 hover:text-white"
               }`}
             >
               Annual
@@ -76,13 +84,19 @@ export function PricingSection() {
               <h3 className="text-3xl mb-4">WiseGave AI Complete</h3>
               <div className="flex items-end justify-center gap-2 mb-2">
                 <span className="text-gray-400 text-2xl line-through">
-                  ${isAnnual ? (monthlyPrice * 12).toLocaleString() : monthlyPrice.toLocaleString()}
+                  $
+                  {isAnnual
+                    ? (monthlyPrice * 12).toLocaleString()
+                    : monthlyPrice.toLocaleString()}
                 </span>
                 <span className="text-6xl">
-                  ${isAnnual ? annualPrice.toLocaleString() : monthlyPrice.toLocaleString()}
+                  $
+                  {isAnnual
+                    ? annualPrice.toLocaleString()
+                    : monthlyPrice.toLocaleString()}
                 </span>
                 <span className="text-2xl text-gray-400 mb-2">
-                  /{isAnnual ? 'year' : 'month'}
+                  /{isAnnual ? "year" : "month"}
                 </span>
               </div>
               {isAnnual && (
@@ -96,11 +110,15 @@ export function PricingSection() {
             <div className="space-y-4 mb-8">
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">Voice AI with unlimited call handling</p>
+                <p className="text-gray-300">
+                  Voice AI with unlimited call handling
+                </p>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">Conversation AI across all channels</p>
+                <p className="text-gray-300">
+                  Conversation AI across all channels
+                </p>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
@@ -108,7 +126,9 @@ export function PricingSection() {
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">Done-for-you AI setup within 24 hours</p>
+                <p className="text-gray-300">
+                  Done-for-you AI setup within 24 hours
+                </p>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
@@ -116,23 +136,33 @@ export function PricingSection() {
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">Lead management and qualification</p>
+                <p className="text-gray-300">
+                  Lead management and qualification
+                </p>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">Automated appointment scheduling</p>
+                <p className="text-gray-300">
+                  Automated appointment scheduling
+                </p>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">Multi-channel customer engagement</p>
+                <p className="text-gray-300">
+                  Multi-channel customer engagement
+                </p>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">85% money-back guarantee (7 days)</p>
+                <p className="text-gray-300">
+                  85% money-back guarantee (7 days)
+                </p>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">No long-term contracts - cancel anytime</p>
+                <p className="text-gray-300">
+                  No long-term contracts - cancel anytime
+                </p>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
@@ -142,7 +172,7 @@ export function PricingSection() {
 
             {/* CTA Button */}
             <button
-              onClick={() => window.open('https://paddle.com', '_blank')}
+              onClick={() => window.open("https://paddle.com", "_blank")}
               className="w-full bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-white text-black py-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-lg hover:shadow-2xl hover:shadow-white/20"
             >
               Get Started Now
@@ -168,7 +198,9 @@ export function PricingSection() {
             </div>
             <div className="text-left">
               <p className="text-white font-semibold">Risk-Free Trial</p>
-              <p className="text-sm text-gray-400">85% money-back guarantee if not satisfied within 7 days</p>
+              <p className="text-sm text-gray-400">
+                85% money-back guarantee if not satisfied within 7 days
+              </p>
             </div>
           </div>
         </motion.div>
