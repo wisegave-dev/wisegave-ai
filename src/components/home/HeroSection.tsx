@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { ArrowRight, Bot, MessageSquare, TrendingUp } from 'lucide-react';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight, Bot, MessageSquare, TrendingUp } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -20,7 +20,7 @@ export function HeroSection() {
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
         />
         <motion.div
@@ -32,7 +32,7 @@ export function HeroSection() {
           transition={{
             duration: 25,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
         />
         <motion.div
@@ -44,7 +44,7 @@ export function HeroSection() {
           transition={{
             duration: 30,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
         />
       </div>
@@ -65,7 +65,9 @@ export function HeroSection() {
             className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 border border-blue-500/30 rounded-full mb-8 backdrop-blur-sm"
           >
             <Bot className="w-5 h-5 text-blue-400" />
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">AI-Powered Business Automation</span>
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              AI-Powered Business Automation
+            </span>
           </motion.div>
 
           {/* Main Heading */}
@@ -87,11 +89,12 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed"
+            className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed"
           >
-            At WiseGave AI, we believe in transforming the way businesses interact with their customers.
-            Our suite of AI-powered solutions streamlines operations, engages customers effectively,
-            and drives growth without increasing overhead costs.
+            At WiseGave AI, we believe in transforming the way businesses
+            interact with their customers. Our suite of AI-powered solutions
+            streamlines operations, engages customers effectively, and drives
+            growth without increasing overhead costs.
           </motion.p>
 
           {/* Value Props */}
@@ -144,8 +147,11 @@ export function HeroSection() {
             transition={{ delay: 1.1, duration: 0.8 }}
             className="mt-16 text-gray-400 text-sm"
           >
-            <p>Trusted by 1000+ businesses worldwide</p>
-            <p className="mt-2">✓ 85% Money Back Guarantee • ✓ Launch in 24 Hours • ✓ No Long-Term Contracts</p>
+            <p>Join Service Businesses Already Automating with AI</p>
+            <p className="mt-2">
+              ✓ 85% Money Back Guarantee • ✓ Launch in 24 Hours • ✓ No Long-Term
+              Contracts
+            </p>
           </motion.div>
         </motion.div>
       </div>
