@@ -197,7 +197,7 @@ export function CustomerJourneySection() {
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
           <p className="mt-4 text-gray-400">
-            Join 1000+ businesses already transforming with WiseGave AI
+            Join 785+ businesses already transforming with WiseGave AI
           </p>
         </motion.div>
       </div>
