@@ -1,9 +1,15 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Calendar, Wrench, CreditCard, TrendingUp, ArrowRight } from 'lucide-react';
-import { useState } from 'react';
-import Link from 'next/link';
+import { motion } from "framer-motion";
+import {
+  Calendar,
+  Wrench,
+  CreditCard,
+  TrendingUp,
+  ArrowRight,
+} from "lucide-react";
+import { useState } from "react";
+import Link from "next/link";
 
 export function CustomerJourneySection() {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
@@ -12,42 +18,68 @@ export function CustomerJourneySection() {
     {
       number: 1,
       icon: Calendar,
-      title: 'Book a Demo',
-      description: 'See WiseGave AI Employee\'s features in context of your specific business needs',
-      details: 'Schedule a personalized demo where we showcase how our AI can transform your specific business operations.',
-      color: 'blue'
+      title: "Book a Demo",
+      description:
+        "See WiseGave AI Employee's features in context of your specific business needs",
+      details:
+        "Schedule a personalized demo where we showcase how our AI can transform your specific business operations.",
+      color: "blue",
     },
     {
       number: 2,
       icon: Wrench,
-      title: 'Integrate in 24 Hours',
-      description: 'Our team sets up everything for you - no technical expertise required',
-      details: 'Done-for-you setup includes AI configuration, workflow integration, and comprehensive testing.',
-      color: 'purple'
+      title: "Integrate in 24 Hours",
+      description:
+        "Our team sets up everything for you - no technical expertise required",
+      details:
+        "Done-for-you setup includes AI configuration, workflow integration, and comprehensive testing.",
+      color: "purple",
     },
     {
       number: 3,
       icon: CreditCard,
-      title: 'Make Payment',
-      description: 'Secure payment via Paddle with 85% money-back guarantee',
-      details: 'Flexible monthly or annual plans. Cancel anytime. No hidden fees or long-term contracts.',
-      color: 'green'
+      title: "Make Payment",
+      description: "Secure payment via Paddle with 85% money-back guarantee",
+      details:
+        "Flexible monthly or annual plans. Cancel anytime. No hidden fees or long-term contracts.",
+      color: "green",
     },
     {
       number: 4,
       icon: TrendingUp,
-      title: 'Scale & Grow',
-      description: 'Watch your revenue grow 16x while reducing employee costs',
-      details: 'Maximize output while minimizing costs. Scale operations without adding headcount.',
-      color: 'cyan'
-    }
+      title: "Scale & Grow",
+      description: "Watch your revenue grow 16x while reducing employee costs",
+      details:
+        "Maximize output while minimizing costs. Scale operations without adding headcount.",
+      color: "cyan",
+    },
   ];
 
   const colorClasses = {
-    blue: { gradient: 'from-blue-500 to-purple-500', glow: 'shadow-blue-500/50', border: 'border-blue-500/50', bg: 'bg-blue-500/10' },
-    purple: { gradient: 'from-purple-500 to-pink-500', glow: 'shadow-purple-500/50', border: 'border-purple-500/50', bg: 'bg-purple-500/10' },
-    green: { gradient: 'from-green-500 to-emerald-500', glow: 'shadow-green-500/50', border: 'border-green-500/50', bg: 'bg-green-500/10' },
-    cyan: { gradient: 'from-cyan-500 to-blue-500', glow: 'shadow-cyan-500/50', border: 'border-cyan-500/50', bg: 'bg-cyan-500/10' }
+    blue: {
+      gradient: "from-blue-500 to-purple-500",
+      glow: "shadow-blue-500/50",
+      border: "border-blue-500/50",
+      bg: "bg-blue-500/10",
+    },
+    purple: {
+      gradient: "from-purple-500 to-pink-500",
+      glow: "shadow-purple-500/50",
+      border: "border-purple-500/50",
+      bg: "bg-purple-500/10",
+    },
+    green: {
+      gradient: "from-green-500 to-emerald-500",
+      glow: "shadow-green-500/50",
+      border: "border-green-500/50",
+      bg: "bg-green-500/10",
+    },
+    cyan: {
+      gradient: "from-cyan-500 to-blue-500",
+      glow: "shadow-cyan-500/50",
+      border: "border-cyan-500/50",
+      bg: "bg-cyan-500/10",
+    },
   };
 
   return (
@@ -61,7 +93,10 @@ export function CustomerJourneySection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl mb-4">
-            Your Journey to <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">AI Success</span>
+            Your Journey to{" "}
+            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              AI Success
+            </span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             From setup to success in just 4 simple steps
@@ -69,13 +104,11 @@ export function CustomerJourneySection() {
         </motion.div>
 
         <div className="relative">
-          {/* Connection Lines */}
-          <div className="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-white/20 via-gray-300/20 to-white/20" />
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => {
               const Icon = step.icon;
-              const colors = colorClasses[step.color as keyof typeof colorClasses];
+              const colors =
+                colorClasses[step.color as keyof typeof colorClasses];
               const isHovered = hoveredStep === index;
 
               return (
@@ -87,16 +120,30 @@ export function CustomerJourneySection() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   onMouseEnter={() => setHoveredStep(index)}
                   onMouseLeave={() => setHoveredStep(null)}
-                  className="relative"
+                  className="relative flex flex-col h-full"
                 >
                   {/* Step Card */}
-                  <div className={`bg-white/5 backdrop-blur-sm p-6 rounded-xl border-2 ${isHovered ? colors.border : 'border-white/20'} transition-all duration-300 group hover:transform hover:scale-105`}>
+                  <div
+                    className={`bg-white/5 backdrop-blur-sm p-6 rounded-xl border-2 ${
+                      isHovered ? colors.border : "border-white/20"
+                    } transition-all duration-300 group hover:transform hover:scale-105 flex flex-col h-full`}
+                  >
                     {/* Step Number & Icon */}
                     <div className="flex items-center justify-between mb-4">
-                      <div className={`w-12 h-12 bg-gradient-to-br ${colors.gradient} rounded-full flex items-center justify-center ${isHovered ? `shadow-lg ${colors.glow}` : ''} transition-all duration-300`}>
+                      <div
+                        className={`w-12 h-12 bg-gradient-to-br ${
+                          colors.gradient
+                        } rounded-full flex items-center justify-center ${
+                          isHovered ? `shadow-lg ${colors.glow}` : ""
+                        } transition-all duration-300`}
+                      >
                         <Icon className="w-6 h-6 text-black" />
                       </div>
-                      <div className={`text-4xl text-white/20 ${isHovered ? 'text-white/40' : ''} transition-colors`}>
+                      <div
+                        className={`text-4xl text-white/20 ${
+                          isHovered ? "text-white/40" : ""
+                        } transition-colors`}
+                      >
                         {step.number}
                       </div>
                     </div>
@@ -105,7 +152,7 @@ export function CustomerJourneySection() {
                     <h3 className="text-xl mb-2 group-hover:text-white transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-gray-400 text-sm mb-3">
+                    <p className="text-gray-400 text-sm mb-3 flex-grow">
                       {step.description}
                     </p>
 
@@ -113,7 +160,7 @@ export function CustomerJourneySection() {
                     {isHovered && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
+                        animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         className={`mt-4 p-3 ${colors.bg} rounded-lg border ${colors.border} backdrop-blur-sm`}
                       >
@@ -124,7 +171,7 @@ export function CustomerJourneySection() {
 
                   {/* Arrow between steps (desktop only) */}
                   {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-12 -right-4 text-gray-600">
+                    <div className="hidden lg:block absolute top-24 -right-8 text-gray-600">
                       <ArrowRight className="w-8 h-8" />
                     </div>
                   )}
