@@ -75,9 +75,11 @@ export function PricingSection() {
         >
           <div className="bg-gradient-to-br from-white/10 to-white/5 p-8 md:p-12 rounded-2xl border-2 border-white/20 relative overflow-hidden backdrop-blur-sm">
             {/* Popular Badge */}
-            <div className="absolute top-0 right-0 bg-gradient-to-r from-white to-gray-200 text-black px-4 py-1 text-sm rounded-bl-lg">
-              Most Popular
-            </div>
+            {isAnnual && (
+              <div className="absolute top-0 right-0 bg-gradient-to-r from-white to-gray-200 text-black px-4 py-1 text-sm rounded-bl-lg">
+                Most Popular
+              </div>
+            )}
 
             {/* Pricing */}
             <div className="text-center mb-8">
