@@ -28,7 +28,7 @@ export function CustomerJourneySection() {
     {
       number: 2,
       icon: Wrench,
-      title: "Integrate in 24 Hours",
+      title: "Integrate in 48 Hours",
       description:
         "Our team sets up everything for you - no technical expertise required",
       details:

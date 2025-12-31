@@ -48,7 +48,7 @@ export function PricingSection() {
             >
               Monthly
             </button>
-            <button
+            {/* <button
               onClick={() => setIsAnnual(true)}
               className={`px-6 py-2 rounded-lg transition-all flex items-center gap-2 ${
                 isAnnual
@@ -62,7 +62,7 @@ export function PricingSection() {
                   Save ${savings.toLocaleString()}
                 </span>
               )}
-            </button>
+            </button> */}
           </div>
         </motion.div>
 
@@ -124,12 +124,8 @@ export function PricingSection() {
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">WiseGave AI Employee automation</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
                 <p className="text-gray-300">
-                  Done-for-you AI setup within 24 hours
+                  Done-for-you AI setup within 48 hours
                 </p>
               </div>
               <div className="flex items-start gap-3">
@@ -157,7 +153,7 @@ export function PricingSection() {
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
                 <p className="text-gray-300">
-                  85% money-back guarantee (7 days)
+                  85% money-back guarantee (30 days)
                 </p>
               </div>
               <div className="flex items-start gap-3">

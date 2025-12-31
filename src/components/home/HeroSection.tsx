@@ -149,7 +149,7 @@ export function HeroSection() {
           >
             <p>Join Service Businesses Already Automating with AI</p>
             <p className="mt-2">
-              ✓ 85% Money Back Guarantee • ✓ Launch in 24 Hours • ✓ No Long-Term
+              ✓ 85% Money Back Guarantee • ✓ Launch in 48 Hours • ✓ No Long-Term
               Contracts
             </p>
           </motion.div>

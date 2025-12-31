@@ -84,7 +84,7 @@ export function ProductsSection() {
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mt-2" />
                 <p className="text-gray-300">
-                  Automated appointment scheduling and follow-ups
+                  Automated appointment scheduling
                 </p>
               </div>
               <div className="flex items-start gap-3">
@@ -143,7 +143,7 @@ export function ProductsSection() {
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-cyan-400 rounded-full mt-2" />
                 <p className="text-gray-300">
-                  Multi-channel support (SMS, Email, Social Media, Chat)
+                  Multi-channel support (SMS, Social Media, Chat)
                 </p>
               </div>
               <div className="flex items-start gap-3">
