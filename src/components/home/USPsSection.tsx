@@ -164,7 +164,7 @@ export function USPsSection() {
           </div>
           <div>
             <div className="text-4xl md:text-5xl bg-gradient-to-r from-gray-200 to-white bg-clip-text text-transparent mb-2">
-              24hr
+              48hr
             </div>
             <p className="text-gray-400">Setup Time</p>
           </div>
