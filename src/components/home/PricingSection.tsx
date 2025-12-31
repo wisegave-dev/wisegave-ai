@@ -107,6 +107,11 @@ export function PricingSection() {
                   Save ${savings.toLocaleString()} with annual billing
                 </p>
               )}
+              {!isAnnual && (
+                <p className="text-gray-400 text-sm">
+                  (Applicable for the first month only)
+                </p>
+              )}
             </div>
 
             {/* Features */}
