@@ -1,53 +1,103 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { ChevronDown, HelpCircle } from 'lucide-react';
-import Link from 'next/link';
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { ChevronDown, HelpCircle } from "lucide-react";
+import Link from "next/link";
 
 const faqs = [
   {
-    question: 'What is WiseGave AI?',
-    answer: 'WiseGave AI is an advanced AI-powered automation platform that transforms how businesses interact with their customers. Our suite includes Voice AI, Conversation AI, and the WiseGave AI Employee to handle customer service, lead qualification, appointment scheduling, and more.'
+    question: "What is WiseGave™ AI Employee?",
+    answer:
+      "WiseGave™ AI Employee is a virtual AI team member that answers calls, chats with leads, qualifies inquiries, and books appointments automatically, 24/7.",
   },
   {
-    question: 'How quickly can I get started?',
-    answer: 'We offer a done-for-you AI setup that is completed within 24 hours. Our team handles all the technical configuration and integration, so you can start benefiting from AI automation immediately.'
+    question: "Who is this built for?",
+    answer:
+      "It is designed for US-based small and medium businesses that depend on inbound calls and messages, such as home services, clinics, agencies, and local service providers.",
   },
   {
-    question: 'What is included in the pricing?',
-    answer: 'Our pricing includes Voice AI with unlimited call handling, Conversation AI across all channels, WiseGave AI Employee automation, complete setup within 24 hours, dedicated Success Manager, lead management, automated scheduling, multi-channel customer engagement, and 24/7 priority support.'
+    question: "What problems does it solve?",
+    answer:
+      "It reduces missed calls, improves response time, lowers staffing costs, and ensures consistent lead follow-up without hiring extra staff.",
   },
   {
-    question: 'Is there a money-back guarantee?',
-    answer: 'Yes! We offer an 85% money-back guarantee within 7 days if you\'re not satisfied. This gives you a risk-free opportunity to experience the transformative power of WiseGave AI.'
+    question: "What can the AI Employee do on day one?",
+    answer:
+      "It answers inbound calls, replies to chat and SMS, qualifies leads based on your rules, and books appointments directly into your calendar.",
   },
   {
-    question: 'Are there any long-term contracts?',
-    answer: 'No. We believe in earning your business every month. You can cancel anytime without penalties or long-term commitments. We offer flexible monthly and annual subscription options.'
+    question: "How much does WiseGave™ cost?",
+    answer: "WiseGave™ costs $999 per month (BDT 122,877).",
   },
   {
-    question: 'What channels does Conversation AI support?',
-    answer: 'Our Conversation AI works seamlessly across multiple channels including phone calls, SMS, email, social media (Facebook, Instagram, Twitter), live chat, and more. All conversations are managed from a single intelligent system.'
+    question: "What is included in the $999 per month?",
+    answer:
+      "Full AI Employee access, unlimited AI usage, Voice AI setup, Conversation AI setup, CRM integration, onboarding, and ongoing support.",
   },
   {
-    question: 'How does the Voice AI handle complex conversations?',
-    answer: 'Our Voice AI uses advanced natural language processing to understand context and intent. It can handle complex, multi-turn conversations, qualify leads, schedule appointments, answer FAQs, and route calls to human agents when necessary.'
+    question: "Are there any additional costs?",
+    answer:
+      "Yes. Phone numbers, calls, and SMS are charged based on actual carrier usage. AI usage is unlimited and not billed separately.",
   },
   {
-    question: 'Can WiseGave AI integrate with my existing systems?',
-    answer: 'Yes! WiseGave AI can integrate with most popular CRM systems, calendar applications, booking platforms, and business tools. Our team handles all integration work during the setup process.'
-  }
+    question: "Do you lock customers into long-term contracts?",
+    answer:
+      "No. The subscription is month-to-month and can be canceled anytime.",
+  },
+  {
+    question: "Is the AI compliant with US regulations?",
+    answer:
+      "Yes. The system follows US telecom and messaging compliance standards, including consent-based communication.",
+  },
+  {
+    question: "How long does setup take?",
+    answer:
+      "Setup is completed in less than 48 hours after the demo and approval.",
+  },
+  {
+    question: "Do I need technical knowledge to use this?",
+    answer:
+      "No. WiseGave™ handles the full setup, configuration, and AI training.",
+  },
+  {
+    question: "Do you offer a demo before purchase?",
+    answer:
+      "Yes. A live demo and use-case discussion are mandatory before onboarding.",
+  },
+  {
+    question: "Where is WiseGave™ based?",
+    answer:
+      "WiseGave™ operates globally with an offshore operations team while serving US-based customers.",
+  },
+  {
+    question: "What kind of support do you provide?",
+    answer:
+      "Onboarding support, AI optimization, troubleshooting, and continuous performance tuning.",
+  },
+  {
+    question: "What happens if the AI cannot handle a call or chat?",
+    answer:
+      "You can set escalation rules so conversations are transferred to a human when needed.",
+  },
+  {
+    question: "Can this scale for multiple locations?",
+    answer:
+      "Yes. The system supports multiple locations, numbers, and calendars under one setup.",
+  },
 ];
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-20 bg-gradient-to-b from-black via-[#0a0a0a] to-black relative overflow-hidden">
+    <section
+      id="faq"
+      className="py-20 bg-gradient-to-b from-black via-[#0a0a0a] to-black relative overflow-hidden"
+    >
       {/* Background decoration */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
-      
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
@@ -64,7 +114,10 @@ export function FAQSection() {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl mb-6">
-            Frequently Asked <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Questions</span>
+            Frequently Asked{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Questions
+            </span>
           </h2>
           <p className="text-xl text-gray-400">
             Everything you need to know about WiseGave AI
@@ -89,16 +142,18 @@ export function FAQSection() {
                 <span className="text-lg pr-8 group-hover:text-white transition-colors">
                   {faq.question}
                 </span>
-                <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br ${
-                  openIndex === index 
-                    ? 'from-blue-500 to-purple-500' 
-                    : 'from-white/10 to-white/5'
-                } flex items-center justify-center transition-all duration-300`}>
-                  <ChevronDown 
+                <div
+                  className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br ${
+                    openIndex === index
+                      ? "from-blue-500 to-purple-500"
+                      : "from-white/10 to-white/5"
+                  } flex items-center justify-center transition-all duration-300`}
+                >
+                  <ChevronDown
                     className={`w-5 h-5 ${
-                      openIndex === index ? 'text-white' : 'text-gray-400'
+                      openIndex === index ? "text-white" : "text-gray-400"
                     } transition-transform duration-300 ${
-                      openIndex === index ? 'rotate-180' : ''
+                      openIndex === index ? "rotate-180" : ""
                     }`}
                   />
                 </div>
@@ -106,12 +161,14 @@ export function FAQSection() {
               {openIndex === index && (
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
+                  animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                   className="px-6 pb-5 border-t border-white/10"
                 >
-                  <p className="text-gray-400 leading-relaxed pt-4">{faq.answer}</p>
+                  <p className="text-gray-400 leading-relaxed pt-4">
+                    {faq.answer}
+                  </p>
                 </motion.div>
               )}
             </motion.div>
