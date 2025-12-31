@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Calendar, Clock, Video } from "lucide-react";
 import { useState } from "react";
+import Script from "next/script";
 
 export default function BookingPage() {
   const [selectedDate, setSelectedDate] = useState<string>("");
@@ -97,6 +98,10 @@ export default function BookingPage() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white pt-24 pb-16">
+      <Script
+        src="https://api.wisegave.com/js/form_embed.js"
+        strategy="afterInteractive"
+      />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -116,72 +121,25 @@ export default function BookingPage() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Date Selection */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-gray-800/50 p-6 rounded-xl border border-gray-700"
-          >
-            <h3 className="text-2xl mb-6 flex items-center gap-2">
-              <Calendar className="w-6 h-6 text-blue-400" />
-              Select a Date
-            </h3>
-            <div className="space-y-2">
-              {availableDates.map((date) => (
-                <button
-                  key={date}
-                  onClick={() => setSelectedDate(date)}
-                  className={`w-full p-4 rounded-lg text-left transition-all ${
-                    selectedDate === date
-                      ? "bg-blue-600 border-2 border-blue-400"
-                      : "bg-gray-700/50 border-2 border-gray-600 hover:border-gray-500"
-                  }`}
-                >
-                  {formatDate(date)}
-                </button>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Time Selection */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-gray-800/50 p-6 rounded-xl border border-gray-700"
-          >
-            <h3 className="text-2xl mb-6 flex items-center gap-2">
-              <Clock className="w-6 h-6 text-purple-400" />
-              Select a Time
-            </h3>
-            {selectedDate ? (
-              <div className="grid grid-cols-3 gap-2">
-                {availableTimes.map((time) => (
-                  <button
-                    key={time}
-                    onClick={() => setSelectedTime(time)}
-                    className={`p-3 rounded-lg transition-all ${
-                      selectedTime === time
-                        ? "bg-purple-600 border-2 border-purple-400"
-                        : "bg-gray-700/50 border-2 border-gray-600 hover:border-gray-500"
-                    }`}
-                  >
-                    {time}
-                  </button>
-                ))}
-              </div>
-            ) : (
-              <div className="flex items-center justify-center h-64 text-gray-400">
-                Please select a date first
-              </div>
-            )}
-          </motion.div>
+        <div className="flex justify-center items-center">
+          <iframe
+            src="https://api.wisegave.com/widget/booking/VXiV2pMLQy4zYQIUIRR0"
+            style={{
+              width: "100%",
+              border: "none",
+              overflow: "hidden",
+              height: "100vh",
+              backgroundColor: "transparent",
+              borderRadius: "10px",
+              boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.1)",
+            }}
+            scrolling="no"
+            id="VXiV2pMLQy4zYQIUIRR0\_1766244658239"
+          ></iframe>
         </div>
 
         {/* Booking Summary and CTA */}
-        {selectedDate && selectedTime && (
+        {/* {selectedDate && selectedTime && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -202,10 +160,10 @@ export default function BookingPage() {
               Confirm Booking
             </button>
           </motion.div>
-        )}
+        )} */}
 
         {/* Info Box */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
@@ -238,7 +196,7 @@ export default function BookingPage() {
               <span>Q&A session tailored to your business needs</span>
             </li>
           </ul>
-        </motion.div>
+        </motion.div> */}
       </div>
     </div>
   );
