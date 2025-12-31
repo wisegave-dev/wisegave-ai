@@ -7,7 +7,8 @@ import { Check } from "lucide-react";
 export function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(false);
 
-  const monthlyPrice = 599;
+  const priceBeforeDiscount = 599;
+  const monthlyPrice = 999;
   const annualPrice = 5990;
   const savings = monthlyPrice * 12 - annualPrice;
 
@@ -95,7 +96,7 @@ export function PricingSection() {
                   $
                   {isAnnual
                     ? annualPrice.toLocaleString()
-                    : monthlyPrice.toLocaleString()}
+                    : priceBeforeDiscount.toLocaleString()}
                 </span>
                 <span className="text-2xl text-gray-400 mb-2">
                   /{isAnnual ? "year" : "month"}
