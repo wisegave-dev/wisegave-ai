@@ -179,12 +179,21 @@ export function TestimonialsSection() {
         >
           <div className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-lg backdrop-blur-sm">
             <div className="flex gap-1">
-              {[...Array(5)].map((_, i) => (
+              {[...Array(4)].map((_, i) => (
                 <Star
                   key={i}
                   className="w-6 h-6 fill-yellow-400 text-yellow-400"
                 />
               ))}
+              <div className="relative w-6 h-6">
+                <Star className="w-6 h-6 fill-gray-500/30 text-gray-500 absolute inset-0" />
+                <div
+                  className="absolute inset-0 overflow-hidden"
+                  style={{ width: "80%", clipPath: "inset(0 0 0 0)" }}
+                >
+                  <Star className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+                </div>
+              </div>
             </div>
             <div className="text-left">
               <p className="text-2xl">4.9 out of 5</p>
