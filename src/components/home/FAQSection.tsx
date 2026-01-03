@@ -7,9 +7,9 @@ import Link from "next/link";
 
 const faqs = [
   {
-    question: "What is WiseGave™ AI Employee?",
+    question: "What is WiseGave AI Employee?",
     answer:
-      "WiseGave™ AI Employee is a virtual AI team member that answers calls, chats with leads, qualifies inquiries, and books appointments automatically, 24/7.",
+      "WiseGave AI Employee is a virtual AI team member that answers calls, chats with leads, qualifies inquiries, and books appointments automatically, 24/7.",
   },
   {
     question: "Who is this built for?",
@@ -27,8 +27,8 @@ const faqs = [
       "It answers inbound calls, replies to chat and SMS, qualifies leads based on your rules, and books appointments directly into your calendar.",
   },
   {
-    question: "How much does WiseGave™ cost?",
-    answer: "WiseGave™ costs $999 per month (BDT 122,877).",
+    question: "How much does WiseGave AI Employee cost?",
+    answer: "WiseGave AI Employee costs $999 per month (BDT 122,877).",
   },
   {
     question: "What is included in the $999 per month?",
