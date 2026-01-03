@@ -118,6 +118,14 @@ export function Footer() {
                   Terms & Conditions
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/refund-policy"
+                  className="text-gray-400 hover:text-white text-sm"
+                >
+                  Refund Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
