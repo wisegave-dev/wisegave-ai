@@ -353,19 +353,19 @@ export default function PrivacyPolicy() {
                 <p>
                   Email:{" "}
                   <a
-                    href="mailto:privacy@wisegave.ai"
+                    href="mailto:contact@wisegave.com"
                     className="text-blue-400 hover:text-blue-300"
                   >
-                    privacy@wisegave.ai
+                    contact@wisegave.com
                   </a>
                 </p>
                 <p>
                   Phone:{" "}
                   <a
-                    href="tel:+61234567890"
+                    href="tel:+18334121010"
                     className="text-blue-400 hover:text-blue-300"
                   >
-                    +61 2 3456 7890
+                    +1 833-412-1010
                   </a>
                 </p>
                 <p>Address: 18 Bungay St, Fawkner 3060, Melbourne, Australia</p>

@@ -38,9 +38,9 @@ export default function TermsConditions() {
               <ul className="space-y-2 text-gray-300">
                 <li>• Voice AI for automated call handling</li>
                 <li>• Conversation AI for multi-channel customer engagement</li>
-                <li>
+                {/* <li>
                   • WiseGave AI Employee for comprehensive business automation
-                </li>
+                </li> */}
                 <li>• Done-for-you setup and integration services</li>
                 <li>• Ongoing support and optimization</li>
               </ul>
@@ -51,7 +51,7 @@ export default function TermsConditions() {
               <div className="space-y-4 text-gray-300">
                 <p>
                   <strong>3.1 Pricing:</strong> Monthly subscription:
-                  $999/month. Annual subscription: $9,990/year.
+                  $999/month.
                 </p>
                 <p>
                   <strong>3.2 Payment:</strong> All payments are processed
@@ -59,7 +59,7 @@ export default function TermsConditions() {
                 </p>
                 <p>
                   <strong>3.3 Billing:</strong> Subscriptions are billed in
-                  advance on a monthly or annual basis.
+                  advance on a monthly.
                 </p>
                 <p>
                   <strong>3.4 Cancellation:</strong> You may cancel your
@@ -71,10 +71,10 @@ export default function TermsConditions() {
             <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
               <h2 className="text-2xl mb-4">4. Money-Back Guarantee</h2>
               <p className="text-gray-300">
-                We offer an 85% money-back guarantee within 7 days of your
+                We offer an 85% money-back guarantee within 30 days of your
                 initial purchase if you are not satisfied with our services. To
                 request a refund, contact our support team at
-                refunds@wisegave.ai.
+                contact@wisegave.com.
               </p>
             </div>
 
@@ -87,7 +87,7 @@ export default function TermsConditions() {
                 </p>
                 <p>
                   <strong>5.2 Setup Time:</strong> Initial setup will be
-                  completed within 24 hours of subscription.
+                  completed within 48 hours of subscription.
                 </p>
                 <p>
                   <strong>5.3 Support:</strong> 24/7 priority support via email,
@@ -185,16 +185,16 @@ export default function TermsConditions() {
                     href="mailto:legal@wisegave.ai"
                     className="text-blue-400 hover:text-blue-300"
                   >
-                    legal@wisegave.ai
+                    contact@wisegave.com
                   </a>
                 </p>
                 <p>
                   Phone:{" "}
                   <a
-                    href="tel:+61234567890"
+                    href="tel:+18334121010"
                     className="text-blue-400 hover:text-blue-300"
                   >
-                    +61 2 3456 7890
+                    +1 833-412-1010
                   </a>
                 </p>
                 <p>Address: 18 Bungay St, Fawkner 3060, Melbourne, Australia</p>
