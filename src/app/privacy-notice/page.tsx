@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
           <h1 className="text-5xl md:text-6xl mb-6">
             Privacy{" "}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Policy
+              Notice
             </span>
           </h1>
           <p className="text-gray-400 mb-8">Last updated: December 12, 2025</p>
@@ -346,7 +346,7 @@ export default function PrivacyPolicy() {
             <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
               <h2 className="text-2xl mb-4">Contact Us</h2>
               <p className="text-gray-300 mb-4">
-                If you have questions about this Privacy Policy or wish to
+                If you have questions about this Privacy Notice or wish to
                 exercise your rights:
               </p>
               <div className="space-y-2 text-gray-300">

@@ -12,9 +12,9 @@ export default function TermsConditions() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-5xl md:text-6xl mb-6">
-            Terms &{" "}
+            Terms of{" "}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Conditions
+              Service
             </span>
           </h1>
           <p className="text-gray-400 mb-8">Last updated: December 12, 2025</p>
@@ -132,7 +132,7 @@ export default function TermsConditions() {
             <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
               <h2 className="text-2xl mb-4">9. Data and Privacy</h2>
               <p className="text-gray-300">
-                Your use of our services is also governed by our Privacy Policy.
+                Your use of our services is also governed by our Privacy Notice.
                 We are committed to protecting your data and maintaining strict
                 confidentiality.
               </p>
@@ -178,7 +178,7 @@ export default function TermsConditions() {
             <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
               <h2 className="text-2xl mb-4">13. Contact Information</h2>
               <div className="space-y-2 text-gray-300">
-                <p>For questions about these Terms & Conditions:</p>
+                <p>For questions about these Terms of Service:</p>
                 <p>
                   Email:{" "}
                   <a
