@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(false);
@@ -181,6 +182,15 @@ export function PricingSection() {
             >
               Get Started Now
             </button>
+
+            {/* See Full Pricing Details Link */}
+            <Link
+              href="/pricing"
+              className="w-full mt-4 inline-flex items-center justify-center gap-2 text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+            >
+              See full pricing details
+              <ArrowRight className="w-4 h-4" />
+            </Link>
 
             <p className="text-center text-gray-400 text-sm mt-4">
               🔒 Secure payment via Paddle • 85% money-back guarantee
