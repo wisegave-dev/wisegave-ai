@@ -178,5 +178,59 @@ export const industries = [
     name: 'Fireplace & Chimney Services',
     services: 'Chimney cleaning, fireplace installation, and maintenance',
     automationNeeds: 'Scheduling, follow-up communication, lead management, and service reminders'
+  },
+  {
+    id: 'locksmith',
+    name: 'Locksmith Services',
+    services: 'Emergency lockout services, lock installation, rekeying, key duplication, and security system upgrades',
+    automationNeeds: 'Emergency response scheduling, lead qualification, appointment booking, and follow-ups'
+  },
+  {
+    id: 'carpet-cleaning',
+    name: 'Carpet Cleaning Services',
+    services: 'Residential and commercial carpet cleaning, stain removal, upholstery cleaning, and rug cleaning',
+    automationNeeds: 'Appointment scheduling, service reminders, lead generation, and customer follow-ups'
+  },
+  {
+    id: 'junk-removal',
+    name: 'Junk Removal Services',
+    services: 'Residential and commercial junk removal, furniture removal, yard waste removal, and debris hauling',
+    automationNeeds: 'Quote requests, appointment scheduling, customer communication, and lead qualification'
+  },
+  {
+    id: 'auto-detailing',
+    name: 'Auto Detailing Services',
+    services: 'Interior and exterior car detailing, paint correction, ceramic coating, and headlight restoration',
+    automationNeeds: 'Appointment booking, service reminders, customer inquiries, and follow-up marketing'
+  },
+  {
+    id: 'septic-services',
+    name: 'Septic Services',
+    services: 'Septic tank pumping, inspections, repairs, installations, and maintenance',
+    automationNeeds: 'Service reminders, appointment scheduling, emergency requests, and customer follow-ups'
+  },
+  {
+    id: 'gutters',
+    name: 'Gutter Services',
+    services: 'Gutter cleaning, installation, repair, gutter guard installation, and downspout maintenance',
+    automationNeeds: 'Seasonal reminders, appointment scheduling, lead qualification, and customer inquiries'
+  },
+  {
+    id: 'masonry',
+    name: 'Masonry Services',
+    services: 'Brick and stone work, chimney repair, retaining walls, patios, and masonry restoration',
+    automationNeeds: 'Project estimates, appointment scheduling, lead management, and follow-up communication'
+  },
+  {
+    id: 'insulation',
+    name: 'Insulation Services',
+    services: 'Attic and wall insulation, spray foam insulation, insulation removal, and energy efficiency upgrades',
+    automationNeeds: 'Appointment scheduling, quote requests, lead qualification, and customer follow-ups'
+  },
+  {
+    id: 'solar',
+    name: 'Solar Installation Services',
+    services: 'Solar panel installation, solar battery systems, maintenance, and energy consultation',
+    automationNeeds: 'Lead qualification, appointment scheduling, customer education, and project tracking'
   }
 ];
