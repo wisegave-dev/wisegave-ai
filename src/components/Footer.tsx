@@ -6,11 +6,11 @@ import {
   Phone,
   MapPin,
   Facebook,
-  Twitter,
   Linkedin,
   Instagram,
 } from "lucide-react";
 import WisegaveLogo from "./icon/wisegave_logo";
+import { XLogo } from "./icon/XLogo";
 // Using placeholder instead of figma asset
 // KOWSHIK LEARNING VIBE CODING
 
@@ -141,14 +141,14 @@ export function Footer() {
               >
                 <Facebook className="w-6 h-6" />
               </a>
-              {/* <a
-                href="https://twitter.com"
+              <a
+                href="https://x.com/WiseGave?s=20"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"
               >
-                <Twitter className="w-6 h-6" />
-              </a> */}
+                <XLogo className="w-6 h-6" />
+              </a>
               <a
                 href="https://www.linkedin.com/company/wisegave/"
                 target="_blank"
