@@ -113,16 +113,22 @@ export function Navigation() {
                       <Link
                         key={industry.id}
                         href={`/industry/${industry.id}`}
-                        className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-all duration-200"
-                        onClick={() => setIsIndustriesOpen(false)}
+                        className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-all duration-200"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setIsIndustriesOpen(false);
+                        }}
                       >
                         {industry.name}
                       </Link>
                     ))}
                     <Link
                       href="/industry/other"
-                      className="block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white border-t border-white/10 transition-all duration-200"
-                      onClick={() => setIsIndustriesOpen(false)}
+                      className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-white/10 hover:text-white border-t border-white/10 transition-all duration-200"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsIndustriesOpen(false);
+                      }}
                     >
                       Other Industries →
                     </Link>
@@ -132,7 +138,7 @@ export function Navigation() {
             </div>
 
             <a
-              href="tel:+1234567890"
+              href="tel:+18334121010"
               className="text-gray-300 hover:text-white transition-colors"
             >
               Call
@@ -160,85 +166,87 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-4">
-            <button
-              onClick={() => scrollToSection("products")}
-              className="block text-gray-300 hover:text-white transition-colors"
-            >
-              Products
-            </button>
-            <button
-              onClick={() => scrollToSection("pricing")}
-              className="block text-gray-300 hover:text-white transition-colors"
-            >
-              Pricing
-            </button>
-            <button
-              onClick={() => scrollToSection("guarantees")}
-              className="block text-gray-300 hover:text-white transition-colors"
-            >
-              Our Guarantee
-            </button>
-            <Link
-              href="/faqs"
-              className="block text-gray-300 hover:text-white transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              FAQs
-            </Link>
-            <div>
+          <div className="md:hidden py-4 border-t border-white/10">
+            <div className="space-y-1">
               <button
-                onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
-                className="text-gray-300 hover:text-white transition-colors flex items-center gap-1"
+                onClick={() => scrollToSection("products")}
+                className="block w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
               >
-                Solutions
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform ${
-                    isIndustriesOpen ? "rotate-180" : ""
-                  }`}
-                />
+                Products
               </button>
-              {isIndustriesOpen && (
-                <div className="mt-2 ml-4 space-y-2">
-                  {industries.slice(0, 5).map((industry) => (
+              <button
+                onClick={() => scrollToSection("pricing")}
+                className="block w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
+              >
+                Pricing
+              </button>
+              <button
+                onClick={() => scrollToSection("guarantees")}
+                className="block w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
+              >
+                Our Guarantee
+              </button>
+              <Link
+                href="/faqs"
+                className="block w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                FAQs
+              </Link>
+              <div className="border-t border-white/10 pt-1">
+                <button
+                  onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
+                  className="block w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-colors rounded-lg flex items-center justify-between"
+                >
+                  <span>Solutions</span>
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${
+                      isIndustriesOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {isIndustriesOpen && (
+                  <div className="mt-1 ml-4 space-y-1">
+                    {industries.slice(0, 5).map((industry) => (
+                      <Link
+                        key={industry.id}
+                        href={`/industry/${industry.id}`}
+                        className="block px-4 py-2.5 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          setIsIndustriesOpen(false);
+                        }}
+                      >
+                        {industry.name}
+                      </Link>
+                    ))}
                     <Link
-                      key={industry.id}
-                      href={`/industry/${industry.id}`}
-                      className="block text-sm text-gray-400 hover:text-white"
+                      href="/industry/other"
+                      className="block px-4 py-2.5 text-sm text-blue-400 hover:text-blue-300 hover:bg-white/5 transition-colors rounded-lg"
                       onClick={() => {
                         setIsMobileMenuOpen(false);
                         setIsIndustriesOpen(false);
                       }}
                     >
-                      {industry.name}
+                      View All Industries →
                     </Link>
-                  ))}
-                  <Link
-                    href="/industry/other"
-                    className="block text-sm text-blue-400 hover:text-blue-300"
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      setIsIndustriesOpen(false);
-                    }}
-                  >
-                    View All Industries →
-                  </Link>
-                </div>
-              )}
+                  </div>
+                )}
+              </div>
+              <a
+                href="tel:+18334121010"
+                className="block w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
+              >
+                Call
+              </a>
+              <Link
+                href="/book-demo"
+                className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors text-center font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Book a Demo
+              </Link>
             </div>
-            <a
-              href="tel:+1234567890"
-              className="block text-gray-300 hover:text-white transition-colors"
-            >
-              Call
-            </a>
-            <Link
-              href="/book-demo"
-              className="block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors text-center"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Book a Demo
-            </Link>
           </div>
         )}
       </div>
