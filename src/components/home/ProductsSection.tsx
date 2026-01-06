@@ -63,7 +63,7 @@ export function ProductsSection() {
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube.com/embed/jvwO9TwPJXs?si=O-GKwcaIkTK30x7Q"
+                  src="https://www.youtube.com/embed/bDE4mp2nSxs?si=DwqMuF__RuQlcuwB"
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
