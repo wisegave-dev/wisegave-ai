@@ -71,7 +71,7 @@ export default function TermsConditions() {
             <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
               <h2 className="text-2xl mb-4">4. Money-Back Guarantee</h2>
               <p className="text-gray-300">
-                We offer an 85% money-back guarantee within 30 days of your
+                We offer an 100% money-back guarantee within 30 days of your
                 initial purchase if you are not satisfied with our services. To
                 request a refund, contact our support team at
                 contact@wisegave.com.

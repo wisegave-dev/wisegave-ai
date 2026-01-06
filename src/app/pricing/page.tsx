@@ -28,7 +28,7 @@ export default function PricingPage() {
     "Done-for-you AI setup within 48 hours",
     "Dedicated Success Manager",
     "24/7 priority support",
-    "85% money-back guarantee (30 days)",
+    "100% money-back guarantee (30 days)",
     "No long-term contracts - cancel anytime",
     "Free platform updates & improvements",
   ];
@@ -43,9 +43,9 @@ export default function PricingPage() {
     },
     {
       icon: Shield,
-      title: "85% Money-Back",
+      title: "100% Money-Back",
       description:
-        "Not satisfied? Get 85% of your money back within 30 days, no questions asked",
+        "Not satisfied? Get 100% of your money back within 30 days, no questions asked",
       gradient: "from-green-500 to-emerald-500",
     },
     {
@@ -78,7 +78,7 @@ export default function PricingPage() {
     {
       question: "How does the money-back guarantee work?",
       answer:
-        "If you're not satisfied within 30 days, contact us and we'll refund 85% of your payment, no questions asked.",
+        "If you're not satisfied within 30 days, contact us and we'll refund 100% of your payment, no questions asked.",
     },
     {
       question: "Can I cancel anytime?",
@@ -183,7 +183,7 @@ export default function PricingPage() {
               </button>
 
               <p className="text-center text-gray-400 text-sm mt-6">
-                🔒 Secure payment via Paddle • 85% money-back guarantee • Setup
+                🔒 Secure payment via Paddle • 100% money-back guarantee • Setup
                 in 48 hours
               </p>
             </div>

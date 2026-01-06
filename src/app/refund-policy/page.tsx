@@ -48,10 +48,10 @@ export default function RefundPolicy() {
               <h2 className="text-2xl mb-4">2. Refund Amount</h2>
               <div className="space-y-3 text-gray-300">
                 <p>
-                  Eligible customers will receive an <strong>85% refund</strong>{" "}
-                  of the amount paid.
+                  Eligible customers will receive an{" "}
+                  <strong>100% refund</strong> of the amount paid.
                 </p>
-                <p>
+                {/* <p>
                   A 100% refund is not offered due to non recoverable and
                   variable costs related to:
                 </p>
@@ -63,7 +63,7 @@ export default function RefundPolicy() {
                 <p>
                   These costs are incurred immediately upon account activation
                   and usage, regardless of the duration of use.
-                </p>
+                </p> */}
               </div>
             </div>
 

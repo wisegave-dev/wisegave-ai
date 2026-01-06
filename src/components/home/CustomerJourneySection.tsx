@@ -39,7 +39,7 @@ export function CustomerJourneySection() {
       number: 3,
       icon: CreditCard,
       title: "Make Payment",
-      description: "Secure payment via Paddle with 85% money-back guarantee",
+      description: "Secure payment via Paddle with 100% money-back guarantee",
       details:
         "Flexible monthly or annual plans. Cancel anytime. No hidden fees or long-term contracts.",
       color: "green",

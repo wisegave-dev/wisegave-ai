@@ -49,7 +49,7 @@ export function USPsSection() {
     },
     {
       icon: TrendingUp,
-      title: "85% Money Back Guarantee",
+      title: "100% Money Back Guarantee",
       description:
         "Risk-free trial with a full refund if customers are not satisfied. 7-day money-back guarantee.",
       color: "red",
@@ -170,7 +170,7 @@ export function USPsSection() {
           </div>
           <div>
             <div className="text-4xl md:text-5xl bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-2">
-              85%
+              100%
             </div>
             <p className="text-gray-400">Money-Back Guarantee</p>
           </div>

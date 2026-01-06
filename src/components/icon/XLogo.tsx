@@ -14,3 +14,4 @@ export function XLogo({ className = "w-6 h-6" }: XLogoProps) {
     </svg>
   );
 }
+

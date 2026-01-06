@@ -160,7 +160,7 @@ export function PricingSection() {
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
                 <p className="text-gray-300">
-                  85% money-back guarantee (30 days)
+                  100% money-back guarantee (30 days)
                 </p>
               </div>
               <div className="flex items-start gap-3">
@@ -193,7 +193,7 @@ export function PricingSection() {
             </Link>
 
             <p className="text-center text-gray-400 text-sm mt-4">
-              🔒 Secure payment via Paddle • 85% money-back guarantee
+              🔒 Secure payment via Paddle • 100% money-back guarantee
             </p>
           </div>
         </motion.div>
@@ -213,7 +213,7 @@ export function PricingSection() {
             <div className="text-left">
               <p className="text-white font-semibold">Risk-Free Trial</p>
               <p className="text-sm text-gray-400">
-                85% money-back guarantee if not satisfied within 7 days
+                100% money-back guarantee if not satisfied within 7 days
               </p>
             </div>
           </div>

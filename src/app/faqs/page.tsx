@@ -24,7 +24,7 @@ const faqs = [
   {
     question: "Is there a money-back guarantee?",
     answer:
-      "Yes! We offer an 85% money-back guarantee within 7 days if you're not satisfied. This gives you a risk-free opportunity to experience the transformative power of WiseGave AI.",
+      "Yes! We offer an 100% money-back guarantee within 7 days if you're not satisfied. This gives you a risk-free opportunity to experience the transformative power of WiseGave AI.",
   },
   {
     question: "Are there any long-term contracts?",
