@@ -368,7 +368,10 @@ export default function PrivacyPolicy() {
                     +1 833-412-1010
                   </a>
                 </p>
-                <p>Address: 18 Bungay St, Fawkner 3060, Melbourne, Australia</p>
+                <p>
+                  Address: B-2/B, Floor 3, House 5, Road 19, Sector 11, Uttara,
+                  Dhaka-1230, Bangladesh
+                </p>
               </div>
             </div>
           </div>
