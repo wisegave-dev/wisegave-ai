@@ -75,6 +75,18 @@ export default function PrivacyPolicy() {
                     requests.
                   </p>
                 </div>
+                <div>
+                  <h3 className="text-xl mb-2 text-white">
+                    Payment Information
+                  </h3>
+                  <p>
+                    We do not store your full credit card details or bank
+                    account information on our servers. All financial
+                    transactions are processed securely by our Merchant of
+                    Record. We only retain transaction IDs and billing status
+                    for account management.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -191,24 +203,32 @@ export default function PrivacyPolicy() {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <span className="mt-1">•</span>
-                    <span>With your explicit consent</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1">•</span>
                     <span>
-                      With service providers who assist in our operations (under
-                      strict confidentiality agreements)
+                      <strong>Merchant of Record:</strong> We share necessary
+                      transaction data with our payment processors to fulfill
+                      orders, calculate taxes, and prevent fraud.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1">•</span>
-                    <span>When required by law or to protect legal rights</span>
+                    <span>
+                      <strong>Service Providers:</strong> With providers who
+                      assist in our operations (under strict confidentiality
+                      agreements).
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1">•</span>
                     <span>
-                      In connection with a business transfer (with your
-                      notification)
+                      <strong>Legal Requirements:</strong> When required by law
+                      or to protect legal rights.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1">•</span>
+                    <span>
+                      <strong>Business Transfer:</strong> In connection with a
+                      business transfer (with your notification).
                     </span>
                   </li>
                 </ul>
@@ -279,14 +299,6 @@ export default function PrivacyPolicy() {
                   <li className="flex items-start gap-3">
                     <span className="mt-1">•</span>
                     <span>Immediate remediation steps will be taken</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1">•</span>
-                    <span>
-                      <strong>You have the right to take legal action</strong>{" "}
-                      against us for any damages resulting from a breach caused
-                      by our negligence
-                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1">•</span>
