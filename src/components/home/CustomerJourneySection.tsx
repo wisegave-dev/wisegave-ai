@@ -14,6 +14,14 @@ import Link from "next/link";
 export function CustomerJourneySection() {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
 
+  const handleMouseEnter = (index: number) => {
+    setHoveredStep(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredStep(null);
+  };
+
   const steps = [
     {
       number: 1,
@@ -104,7 +112,7 @@ export function CustomerJourneySection() {
         </motion.div>
 
         <div className="relative">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
             {steps.map((step, index) => {
               const Icon = step.icon;
               const colors =
@@ -113,20 +121,24 @@ export function CustomerJourneySection() {
 
               return (
                 <motion.div
-                  key={step.number}
+                  key={`step-${step.number}-${index}`}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  onMouseEnter={() => setHoveredStep(index)}
-                  onMouseLeave={() => setHoveredStep(null)}
-                  className="relative flex flex-col h-full"
+                  className="relative"
                 >
                   {/* Step Card */}
                   <div
-                    className={`bg-white/5 backdrop-blur-sm p-6 rounded-xl border-2 ${
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={handleMouseLeave}
+                    className={`${
+                      isHovered ? "" : "h-[220px]"
+                    } bg-white/5 backdrop-blur-sm p-6 rounded-xl border-2 ${
                       isHovered ? colors.border : "border-white/20"
-                    } transition-all duration-300 group hover:transform hover:scale-105 flex flex-col h-full`}
+                    } transition-all duration-300 ${
+                      isHovered ? "transform scale-105" : ""
+                    } flex flex-col`}
                   >
                     {/* Step Number & Icon */}
                     <div className="flex items-center justify-between mb-4">
@@ -149,29 +161,35 @@ export function CustomerJourneySection() {
                     </div>
 
                     {/* Content */}
-                    <h3 className="text-xl mb-2 group-hover:text-white transition-colors">
+                    <h3
+                      className={`text-xl mb-2 transition-colors ${
+                        isHovered ? "text-white" : "text-gray-300"
+                      }`}
+                    >
                       {step.title}
                     </h3>
-                    <p className="text-gray-400 text-sm mb-3 flex-grow">
+                    <p className="text-gray-400 text-sm mb-3">
                       {step.description}
                     </p>
 
-                    {/* Details on Hover */}
-                    {isHovered && (
+                    {/* Details on Hover - Only show for this specific card */}
+                    {hoveredStep !== null && hoveredStep === index ? (
                       <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className={`mt-4 p-3 ${colors.bg} rounded-lg border ${colors.border} backdrop-blur-sm`}
+                        key={`details-${index}-${hoveredStep}`}
+                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                        animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className={`p-3 ${colors.bg} rounded-lg border ${colors.border} backdrop-blur-sm overflow-hidden`}
                       >
                         <p className="text-sm text-gray-300">{step.details}</p>
                       </motion.div>
-                    )}
+                    ) : null}
                   </div>
 
                   {/* Arrow between steps (desktop only) */}
                   {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-24 -right-8 text-gray-600">
+                    <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 -right-8 text-gray-600 z-10">
                       <ArrowRight className="w-8 h-8" />
                     </div>
                   )}
