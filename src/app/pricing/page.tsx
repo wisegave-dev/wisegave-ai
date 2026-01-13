@@ -174,16 +174,16 @@ export default function PricingPage() {
               </div>
 
               {/* CTA Button */}
-              <button
-                onClick={() => window.open("https://paddle.com", "_blank")}
+              <Link
+                href="/checkout"
                 className="w-full bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-white text-black py-5 rounded-xl transition-all duration-300 transform hover:scale-105 text-xl font-semibold hover:shadow-2xl hover:shadow-white/20 flex items-center justify-center gap-2"
               >
                 Get Started Now
                 <ArrowRight className="w-6 h-6" />
-              </button>
+              </Link>
 
               <p className="text-center text-gray-400 text-sm mt-6">
-                🔒 Secure payment via Paddle • 100% money-back guarantee • Setup
+                🔒 Secure payment via Polar • 100% money-back guarantee • Setup
                 in 48 hours
               </p>
             </div>
@@ -292,13 +292,13 @@ export default function PricingPage() {
               customer interactions and drive growth
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => window.open("https://paddle.com", "_blank")}
+              <Link
+                href="/checkout"
                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-white to-gray-200 text-black px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-white/20"
               >
                 Get Started Now
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </Link>
               <Link
                 href="/book-demo"
                 className="inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-lg border border-white/20 transition-all duration-300 backdrop-blur-sm"

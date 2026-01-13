@@ -176,12 +176,12 @@ export function PricingSection() {
             </div>
 
             {/* CTA Button */}
-            <button
-              onClick={() => window.open("https://paddle.com", "_blank")}
-              className="w-full bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-white text-black py-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-lg hover:shadow-2xl hover:shadow-white/20"
+            <Link
+              href="/checkout"
+              className="w-full bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-white text-black py-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-lg hover:shadow-2xl hover:shadow-white/20 flex items-center justify-center"
             >
               Get Started Now
-            </button>
+            </Link>
 
             {/* See Full Pricing Details Link */}
             <Link
@@ -193,7 +193,7 @@ export function PricingSection() {
             </Link>
 
             <p className="text-center text-gray-400 text-sm mt-4">
-              🔒 Secure payment via Paddle • 100% money-back guarantee
+              🔒 Secure payment via Polar • 100% money-back guarantee
             </p>
           </div>
         </motion.div>
