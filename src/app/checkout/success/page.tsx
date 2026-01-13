@@ -94,7 +94,7 @@ function CheckoutSuccessContent() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/"
               className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-white text-black px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-lg font-semibold hover:shadow-2xl hover:shadow-white/20"
@@ -108,7 +108,7 @@ function CheckoutSuccessContent() {
             >
               Schedule Setup Call
             </Link>
-          </div>
+          </div> */}
 
           {/* Support */}
           <p className="mt-8 text-gray-400 text-sm">
@@ -135,7 +135,13 @@ function CheckoutSuccessContent() {
 
 export default function CheckoutSuccessPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center text-white">Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-black flex items-center justify-center text-white">
+          Loading...
+        </div>
+      }
+    >
       <CheckoutSuccessContent />
     </Suspense>
   );

@@ -173,7 +173,6 @@ export default function PricingPage() {
                 </div>
               </div>
 
-              {/* CTA Button */}
               <Link
                 href="/checkout"
                 className="w-full bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-white text-black py-5 rounded-xl transition-all duration-300 transform hover:scale-105 text-xl font-semibold hover:shadow-2xl hover:shadow-white/20 flex items-center justify-center gap-2"
