@@ -28,12 +28,12 @@ const faqs = [
   },
   {
     question: "How much does WiseGave AI Employee cost?",
-    answer: "WiseGave AI Employee costs $999 per month (BDT 122,877).",
+    answer: "WiseGave AI Employee costs $999 per month",
   },
   {
     question: "What is included in the $999 per month?",
     answer:
-      "Full AI Employee access, unlimited AI usage, Voice AI setup, Conversation AI setup, CRM integration, onboarding, and ongoing support.",
+      "Full AI Employee access, unlimited AI usage, Voice AI setup, Conversation AI setup, onboarding, and ongoing support.",
   },
   {
     question: "Are there any additional costs?",

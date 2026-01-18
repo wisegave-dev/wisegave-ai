@@ -51,7 +51,7 @@ export function USPsSection() {
       icon: TrendingUp,
       title: "100% Money Back Guarantee",
       description:
-        "Risk-free trial with a full refund if customers are not satisfied. 7-day money-back guarantee.",
+        "Risk-free trial with a full refund if customers are not satisfied. 30-day money-back guarantee.",
       color: "red",
     },
   ];

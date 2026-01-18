@@ -27,15 +27,15 @@ export function CustomerJourneySection() {
       number: 3,
       icon: CreditCard,
       title: 'Make Payment',
-      description: 'Secure payment via Paddle with 85% money-back guarantee',
-      details: 'Flexible monthly or annual plans. Cancel anytime. No hidden fees or long-term contracts.',
+      description: 'Secure payment via Polar with 85% money-back guarantee',
+      details: 'Flexible monthly plans. Cancel anytime. No hidden fees or long-term contracts.',
       color: 'green'
     },
     {
       number: 4,
       icon: TrendingUp,
       title: 'Scale & Grow',
-      description: 'Watch your revenue grow 16x while reducing employee costs',
+      description: 'Watch your revenue grow while reducing employee costs',
       details: 'Maximize output while minimizing costs. Scale operations without adding headcount.',
       color: 'cyan'
     }

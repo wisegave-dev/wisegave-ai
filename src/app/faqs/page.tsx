@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "Are there any long-term contracts?",
     answer:
-      "No. We believe in earning your business every month. You can cancel anytime without penalties or long-term commitments. We offer flexible monthly and annual subscription options.",
+      "No. We believe in earning your business every month. You can cancel anytime without penalties or long-term commitments. We offer flexible monthly subscription options.",
   },
   {
     question: "What channels does Conversation AI support?",

@@ -61,8 +61,7 @@ function CheckoutSuccessContent() {
                 <div>
                   <p className="font-semibold text-white">Check Your Email</p>
                   <p className="text-sm">
-                    We've sent you a confirmation email with your account
-                    details and next steps.
+                  Our team will contact you shortly to schedule your onboarding and setup meeting.
                   </p>
                 </div>
               </div>
@@ -73,8 +72,7 @@ function CheckoutSuccessContent() {
                 <div>
                   <p className="font-semibold text-white">Setup Begins</p>
                   <p className="text-sm">
-                    Our team will start your AI setup within 48 hours. You'll
-                    receive updates via email.
+                  Your AI employee will be fully deployed and live within 48 hours.
                   </p>
                 </div>
               </div>
@@ -85,8 +83,8 @@ function CheckoutSuccessContent() {
                 <div>
                   <p className="font-semibold text-white">Get Started</p>
                   <p className="text-sm">
-                    Once setup is complete, you'll have full access to all
-                    WiseGave AI features.
+                  After deployment, you will have complete access to Voice AI and Conversation AI.
+5
                   </p>
                 </div>
               </div>
