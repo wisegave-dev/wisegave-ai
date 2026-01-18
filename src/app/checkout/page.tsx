@@ -113,7 +113,7 @@ function CheckoutContent() {
                 <div className="flex justify-between items-center">
                   <div>
                     <p className="text-white font-medium">
-                      WiseGave AI Complete
+                      AI Employee
                     </p>
                     <p className="text-sm text-gray-400">
                       {planType === "annual" ? "Annual Plan" : "Monthly Plan"}
@@ -139,7 +139,7 @@ function CheckoutContent() {
                     </div>
                     {planType === "monthly" && (
                       <p className="text-xs text-gray-500 mt-1">
-                        (First month only)
+                        (First 3 month only)
                       </p>
                     )}
                   </div>

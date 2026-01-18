@@ -85,7 +85,7 @@ export function PricingSection() {
 
             {/* Pricing */}
             <div className="text-center mb-8">
-              <h3 className="text-3xl mb-4">WiseGave AI Complete</h3>
+              <h3 className="text-3xl mb-4">AI Employee</h3>
               <div className="flex items-end justify-center gap-2 mb-2">
                 <span className="text-gray-400 text-2xl line-through">
                   $
@@ -110,7 +110,7 @@ export function PricingSection() {
               )}
               {!isAnnual && (
                 <p className="text-gray-400 text-sm">
-                  (Applicable for the first month only)
+                  (Applicable for the first 3 month only)
                 </p>
               )}
             </div>

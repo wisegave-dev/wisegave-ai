@@ -127,7 +127,7 @@ export default function PricingPage() {
               {/* Pricing Header */}
               <div className="text-center mb-12">
                 <h2 className="text-4xl mb-6 text-white">
-                  WiseGave AI Complete
+                AI Employee
                 </h2>
                 <div className="flex items-end justify-center gap-2 mb-2">
                   <span className="text-gray-400 text-2xl line-through">
@@ -142,7 +142,7 @@ export default function PricingPage() {
                   Full AI suite with unlimited usage
                 </p>
                 <p className="text-sm text-gray-400">
-                  (Applicable for the first month only)
+                  (Applicable for the first 3 months only)
                 </p>
               </div>
 
