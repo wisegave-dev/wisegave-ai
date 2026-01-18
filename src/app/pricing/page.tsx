@@ -13,7 +13,7 @@ import {
 
 export default function PricingPage() {
   const monthlyPrice = 999;
-  const priceBeforeDiscount = 599;
+  const priceBeforeDiscount = 499;
 
   const coreFeatures = [
     "Voice AI with unlimited call handling",

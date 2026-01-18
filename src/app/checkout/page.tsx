@@ -13,9 +13,9 @@ function CheckoutContent() {
   const [error, setError] = useState<string | null>(null);
   const planType = searchParams.get("plan") || "monthly"; // monthly or annual
 
-  const priceBeforeDiscount = 599;
+  const priceBeforeDiscount = 499;
   const monthlyPrice = 999;
-  const annualPrice = 5990;
+  const annualPrice = 4990;
 
   useEffect(() => {
     const initializeCheckout = async () => {

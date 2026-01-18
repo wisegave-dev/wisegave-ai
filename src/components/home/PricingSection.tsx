@@ -8,9 +8,9 @@ import Link from "next/link";
 export function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(false);
 
-  const priceBeforeDiscount = 599;
+  const priceBeforeDiscount = 499;
   const monthlyPrice = 999;
-  const annualPrice = 5990;
+  const annualPrice = 4990;
   const savings = monthlyPrice * 12 - annualPrice;
 
   return (
