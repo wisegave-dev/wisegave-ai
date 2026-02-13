@@ -123,7 +123,7 @@ export default function BookingPage() {
 
         <div className="flex justify-center items-center">
           <iframe
-            src="https://api.wisegave.com/widget/booking/VXiV2pMLQy4zYQIUIRR0"
+            src="https://api.wisegave.com/widget/booking/IUyqytklyaHEYWy1Bx6v"
             style={{
               width: "100%",
               border: "none",
@@ -134,7 +134,7 @@ export default function BookingPage() {
               boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.1)",
             }}
             scrolling="no"
-            id="VXiV2pMLQy4zYQIUIRR0\_1766244658239"
+            id="IUyqytklyaHEYWy1Bx6v"
           ></iframe>
         </div>
 
