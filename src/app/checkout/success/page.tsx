@@ -61,7 +61,9 @@ function CheckoutSuccessContent() {
                 <div>
                   <p className="font-semibold text-white">Check Your Email</p>
                   <p className="text-sm">
-                  Our team will contact you shortly to schedule your onboarding and setup meeting.
+                    You will receive your account access details via email
+                    shortly. Please note it may take up to 2 minutes for the
+                    email to arrive, check your spam folder if you don't see it.
                   </p>
                 </div>
               </div>
@@ -70,9 +72,15 @@ function CheckoutSuccessContent() {
                   <span className="text-white text-sm font-bold">2</span>
                 </div>
                 <div>
-                  <p className="font-semibold text-white">Setup Begins</p>
+                  <p className="font-semibold text-white">
+                    Your Setup Call is Coming
+                  </p>
                   <p className="text-sm">
-                  Your AI employee will be fully deployed and live within 48 hours.
+                    One of our specialists will be calling you soon to set up
+                    your AI Employee from start to finish. We highly recommend
+                    waiting for our team rather than setting things up yourself,
+                    we'll have everything configured perfectly for your
+                    business.
                   </p>
                 </div>
               </div>
@@ -81,10 +89,13 @@ function CheckoutSuccessContent() {
                   <span className="text-white text-sm font-bold">3</span>
                 </div>
                 <div>
-                  <p className="font-semibold text-white">Get Started</p>
+                  <p className="font-semibold text-white">
+                    Go Live in 48 Hours
+                  </p>
                   <p className="text-sm">
-                  After deployment, you will have complete access to Voice AI and Conversation AI.
-5
+                    Once our specialist completes your setup, your AI Employee
+                    will be fully deployed and ready within 48 hours. Sit back
+                    and let the magic begin.
                   </p>
                 </div>
               </div>
