@@ -1,25 +1,23 @@
 // Configure Google Sheets with environment variables
 const SPREADSHEET_ID = process.env.GOOGLE_SHEETS_SPREADSHEET_ID || '';
 
-// Try API key first (simpler), fallback to service account if needed
-const API_KEY = process.env.GOOGLE_SHEETS_API_KEY || '';
 const SERVICE_ACCOUNT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL || '';
 const SERVICE_ACCOUNT_PRIVATE_KEY = process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY || '';
 
-// Get authentication token (API key or service account)
-async function getGoogleSheetsToken() {
-  // First try API key approach (simpler and works for publicly accessible sheets)
-  if (API_KEY) {
-    return API_KEY;
-  }
-
-  // Fallback to service account if API key not available
+/**
+ * Google Sheets v4 append/update requires OAuth2 or a service account.
+ * API keys only work for some public read-only calls — not for saving form rows.
+ */
+async function getAccessTokenForSheetWrites(): Promise<string> {
   if (SERVICE_ACCOUNT_EMAIL && SERVICE_ACCOUNT_PRIVATE_KEY) {
-    console.log('Using service account authentication');
     return await getServiceAccountToken();
   }
-
-  throw new Error('No Google Sheets authentication configured. Please set GOOGLE_SHEETS_API_KEY or service account credentials.');
+  throw new Error(
+    'Google Sheets: saving rows requires a service account (API keys cannot write). ' +
+      'In Google Cloud Console: create a service account, enable Sheets API, create a JSON key. ' +
+      'Set GOOGLE_SERVICE_ACCOUNT_EMAIL and GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY in .env. ' +
+      'Open your spreadsheet → Share → add the service account email as Editor.'
+  );
 }
 
 // Service account JWT implementation for Edge Runtime
@@ -177,10 +175,7 @@ async function getServiceAccountToken(): Promise<string> {
 }
 
 export async function appendToSheet(data: Record<string, any>) {
-  const token = await getGoogleSheetsToken();
-
-  // Check if using API key or service account token
-  const isApiKey = API_KEY && token === API_KEY;
+  const token = await getAccessTokenForSheetWrites();
 
   // Prepare the row data
   const rowValues = [
@@ -195,19 +190,16 @@ export async function appendToSheet(data: Record<string, any>) {
     data.userAgent || ''
   ];
 
-  // Check if sheet has headers by reading the first row
   const range = 'Sheet1!A1:I1';
-  const checkUrl = isApiKey
-    ? `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}?key=${token}`
-    : `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}`;
+  const checkUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}`;
 
   try {
     const checkResponse = await fetch(checkUrl, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        ...(isApiKey ? {} : { 'Authorization': `Bearer ${token}` })
-      }
+        Authorization: `Bearer ${token}`,
+      },
     });
 
     const checkResult = await checkResponse.json();
@@ -221,15 +213,13 @@ export async function appendToSheet(data: Record<string, any>) {
         ['Timestamp', 'Industry', 'Business Idea', 'Email', 'Business Name', 'Website', 'Country', 'IP Address', 'User Agent']
       ];
 
-      const headerUrl = isApiKey
-        ? `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A1:I1?valueInputOption=USER_ENTERED&key=${token}`
-        : `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A1:I1?valueInputOption=USER_ENTERED`;
+      const headerUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A1:I1?valueInputOption=USER_ENTERED`;
 
       await fetch(headerUrl, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          ...(isApiKey ? {} : { 'Authorization': `Bearer ${token}` })
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           values: headers
@@ -238,15 +228,13 @@ export async function appendToSheet(data: Record<string, any>) {
     }
 
     // Append the new row
-    const appendUrl = isApiKey
-      ? `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A:I:append?valueInputOption=USER_ENTERED&key=${token}`
-      : `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A:I:append?valueInputOption=USER_ENTERED`;
+    const appendUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A:I:append?valueInputOption=USER_ENTERED`;
 
     const response = await fetch(appendUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        ...(isApiKey ? {} : { 'Authorization': `Bearer ${token}` })
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         values: [rowValues]
