@@ -88,14 +88,14 @@ export function Footer() {
                   Products
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="#pricing"
                   className="text-gray-400 hover:text-white text-sm"
                 >
                   Pricing
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 

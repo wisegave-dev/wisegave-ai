@@ -86,12 +86,12 @@ export function Navigation() {
             >
               Products
             </button>
-            <Link
+            {/* <Link
               href="/pricing"
               className="text-gray-300 hover:text-white transition-colors"
             >
               Pricing
-            </Link>
+            </Link> */}
             <button
               onClick={() => scrollToSection("guarantees")}
               className="text-gray-300 hover:text-white transition-colors"
@@ -183,13 +183,13 @@ export function Navigation() {
               >
                 Products
               </button>
-              <Link
+              {/* <Link
                 href="/pricing"
                 className="block w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Pricing
-              </Link>
+              </Link> */}
               <button
                 onClick={() => scrollToSection("guarantees")}
                 className="block w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
