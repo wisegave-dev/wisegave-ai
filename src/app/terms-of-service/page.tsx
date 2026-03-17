@@ -17,7 +17,7 @@ export default function TermsConditions() {
               Service
             </span>
           </h1>
-          <p className="text-gray-400 mb-8">Last updated: December 12, 2025</p>
+          <p className="text-gray-400 mb-8">Last updated: March 18, 2026</p>
 
           <div className="prose prose-invert max-w-none space-y-8">
             <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
@@ -55,16 +55,12 @@ export default function TermsConditions() {
             </div>
 
             <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
-              <h2 className="text-2xl mb-4">
-                3. Subscription, Payment & Merchant of Record
-              </h2>
+              <h2 className="text-2xl mb-4">3. Subscription &amp; Payment</h2>
               <div className="space-y-4 text-gray-300">
                 <p>
-                  <strong>3.1 Merchant of Record:</strong> Our order process is
-                  conducted by our online reseller and Merchant of Record (MoR).
-                  The MoR is the Merchant of Record for all our orders. Use of
-                  the service constitutes agreement to the MoR's Terms of
-                  Service and Privacy Policy regarding payment processing.
+                  <strong>3.1</strong> All payments are processed securely by
+                  Stripe, Inc. By subscribing, you agree to Stripe&apos;s Terms
+                  of Service and Privacy Policy regarding payment processing.
                 </p>
                 <p>
                   <strong>3.2 Pricing:</strong> The subscription fee is
@@ -72,8 +68,8 @@ export default function TermsConditions() {
                 </p>
                 <p>
                   <strong>3.3 Taxes:</strong> All fees are exclusive of taxes,
-                  which we will charge as applicable. The MoR is responsible for
-                  collecting and remitting global sales tax/VAT where required.
+                  which we will charge as applicable. WiseGave AI is responsible
+                  for collecting applicable taxes where required by law.
                 </p>
                 <p>
                   <strong>3.4 Cancellation:</strong> You may cancel your
@@ -89,7 +85,7 @@ export default function TermsConditions() {
               <p className="text-gray-300">
                 We offer a 100% money-back guarantee within 30 days of your
                 initial purchase if you are not satisfied with our software.
-                Refund requests are processed by our Merchant of Record and
+                Refund requests are processed by WiseGave AI via Stripe and
                 typically take 5-10 business days to appear in your account.
               </p>
             </div>
@@ -149,8 +145,8 @@ export default function TermsConditions() {
               <h2 className="text-2xl mb-4">9. Data and Privacy</h2>
               <p className="text-gray-300">
                 Your use of our services is governed by our Privacy Notice. You
-                acknowledge that financial data is processed securely by our
-                Merchant of Record and not stored directly on our servers.
+                acknowledge that financial data is processed securely by
+                Stripe, Inc. and not stored directly on our servers.
               </p>
             </div>
 
@@ -184,9 +180,11 @@ export default function TermsConditions() {
               <h2 className="text-2xl mb-4">12. Governing Law</h2>
               <p className="text-gray-300">
                 These terms shall be governed by and construed in accordance
-                with the laws of Bangladesh. Any disputes arising from these
-                terms shall be subject to the exclusive jurisdiction of the
-                courts located in Dhaka, Bangladesh.
+                with the laws of the State of Delaware, United States, without
+                regard to its conflict of law principles. Any disputes arising
+                from these terms shall be subject to the exclusive jurisdiction
+                of the courts of competent jurisdiction in the State of
+                Delaware.
               </p>
             </div>
 
@@ -216,6 +214,21 @@ export default function TermsConditions() {
                   Address: 131 Continental Dr, Suite 305, Newark, DE 19713, United States
                 </p>
               </div>
+            </div>
+
+            <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
+              <h2 className="text-2xl mb-4">
+                14. SMS &amp; Automated Communications
+              </h2>
+              <p className="text-gray-300">
+                By providing your phone number and submitting any form on our
+                website, you expressly consent to receive automated SMS messages
+                from WiseGave AI for appointment reminders, follow-ups, and
+                service-related communications. Message and data rates may apply.
+                Message frequency varies based on your interaction with our
+                services. You may opt out at any time by replying STOP to any
+                SMS message. For assistance, reply HELP.
+              </p>
             </div>
           </div>
         </motion.div>
