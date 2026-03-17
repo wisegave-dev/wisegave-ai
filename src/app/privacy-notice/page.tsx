@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Lock, UserCheck, AlertTriangle, Scale } from "lucide-react";
+import {
+  Shield,
+  Lock,
+  UserCheck,
+  AlertTriangle,
+  Scale,
+  MessageSquare,
+} from "lucide-react";
 
 export default function PrivacyPolicy() {
   return (
@@ -18,7 +25,7 @@ export default function PrivacyPolicy() {
               Notice
             </span>
           </h1>
-          <p className="text-gray-400 mb-8">Last updated: December 12, 2025</p>
+          <p className="text-gray-400 mb-8">Last updated: March 18, 2026</p>
 
           <div className="prose prose-invert max-w-none space-y-8">
             {/* Introduction */}
@@ -82,9 +89,9 @@ export default function PrivacyPolicy() {
                   <p>
                     We do not store your full credit card details or bank
                     account information on our servers. All financial
-                    transactions are processed securely by our Merchant of
-                    Record. We only retain transaction IDs and billing status
-                    for account management.
+                    transactions are processed securely by Stripe. We only
+                    retain transaction IDs and billing status for account
+                    management.
                   </p>
                 </div>
               </div>
@@ -132,6 +139,24 @@ export default function PrivacyPolicy() {
                   </span>
                 </li>
               </ul>
+            </div>
+
+            {/* SMS & Automated Communications */}
+            <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
+              <h2 className="text-2xl mb-4 flex items-center gap-3">
+                <MessageSquare className="w-6 h-6 text-cyan-400" />
+                SMS & Automated Communications
+              </h2>
+              <p className="text-gray-300 leading-relaxed">
+                When you provide your phone number on our website, you consent
+                to receive automated SMS messages from WiseGave AI for
+                appointment reminders, follow-ups, and service-related
+                communications. Message and data rates may apply. Message
+                frequency varies based on your interaction with our services.
+                You may opt out at any time by replying STOP to any message. For
+                assistance, reply HELP. We do not sell or share your phone
+                number with third parties for their own marketing purposes.
+              </p>
             </div>
 
             {/* Data Protection */}
@@ -204,9 +229,9 @@ export default function PrivacyPolicy() {
                   <li className="flex items-start gap-3">
                     <span className="mt-1">•</span>
                     <span>
-                      <strong>Merchant of Record:</strong> We share necessary
-                      transaction data with our payment processors to fulfill
-                      orders, calculate taxes, and prevent fraud.
+                      <strong>Payment Processor (Stripe):</strong> We share
+                      necessary transaction data with our payment processors to
+                      fulfill orders, calculate taxes, and prevent fraud.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
