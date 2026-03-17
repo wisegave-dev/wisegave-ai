@@ -381,8 +381,7 @@ export default function PrivacyPolicy() {
                   </a>
                 </p>
                 <p>
-                  Address: B-2/B, Floor 3, House 5, Road 19, Sector 11, Uttara,
-                  Dhaka-1230, Bangladesh
+                  Address: 131 Continental Dr, Suite 305, Newark, DE 19713, United States
                 </p>
               </div>
             </div>

@@ -31,8 +31,7 @@ export function Footer() {
             <div className="flex items-center gap-2 text-gray-400 mb-2">
               <MapPin className="w-4 h-4" />
               <span className="text-sm">
-                B-2/B, Floor 3, House 5, Road 19, Sector 11, Uttara, Dhaka-1230,
-                Bangladesh
+              131 Continental Dr, Suite 305, Newark, DE 19713, United States
               </span>
             </div>
             <div className="flex items-center gap-2 text-gray-400 mb-2">
