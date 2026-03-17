@@ -4,9 +4,10 @@ import { motion } from "framer-motion";
 import {
   Calendar,
   Wrench,
-  CreditCard,
+  // CreditCard,
   TrendingUp,
   ArrowRight,
+  UserCheck
 } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
@@ -45,11 +46,11 @@ export function CustomerJourneySection() {
     },
     {
       number: 3,
-      icon: CreditCard,
-      title: "Make Payment",
-      description: "Secure payment via Polar with 100% money-back guarantee",
+      icon: UserCheck,
+      title: "Verify Your Account",
+      description: "Complete a quick verification process to ensure your account is secure",
       details:
-        "Flexible monthly plans. Cancel anytime. No hidden fees or long-term contracts.",
+        "Verify your account with a simple process to ensure security and compliance.",
       color: "green",
     },
     {

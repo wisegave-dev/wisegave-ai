@@ -26,15 +26,15 @@ const faqs = [
     answer:
       "It answers inbound calls, replies to chat and SMS, qualifies leads based on your rules, and books appointments directly into your calendar.",
   },
-  {
-    question: "How much does WiseGave AI Employee cost?",
-    answer: "WiseGave AI Employee costs $999 per month",
-  },
-  {
-    question: "What is included in the $999 per month?",
-    answer:
-      "Full AI Employee access, unlimited AI usage, Voice AI setup, Conversation AI setup, onboarding, and ongoing support.",
-  },
+  // {
+  //   question: "How much does WiseGave AI Employee cost?",
+  //   answer: "WiseGave AI Employee costs $999 per month",
+  // },
+  // {
+  //   question: "What is included in the $999 per month?",
+  //   answer:
+  //     "Full AI Employee access, unlimited AI usage, Voice AI setup, Conversation AI setup, onboarding, and ongoing support.",
+  // },
   {
     question: "Are there any additional costs?",
     answer:
