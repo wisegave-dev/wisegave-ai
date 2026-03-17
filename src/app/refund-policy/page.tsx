@@ -17,17 +17,16 @@ export default function RefundPolicy() {
               Policy
             </span>
           </h1>
-          <p className="text-gray-400 mb-8">Last updated: December 12, 2025</p>
+          <p className="text-gray-400 mb-8">Last updated: March 18, 2026</p>
 
           <div className="prose prose-invert max-w-none space-y-8">
             <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
               <h2 className="text-2xl mb-4">1. Overview</h2>
               <p className="text-gray-300">
                 WiseGave™ is committed to maintaining transparency and fairness
-                in all billing and subscription matters. As we utilize a
-                Merchant of Record (MoR) for payment processing, this policy
-                explains how refunds are handled in coordination with our
-                payment partners.
+                in all billing and subscription matters. As we utilize Stripe
+                for payment processing, this policy explains how refunds are
+                handled in coordination with Stripe.
               </p>
             </div>
 
@@ -70,8 +69,8 @@ export default function RefundPolicy() {
                 </li>
               </ul>
               <p className="text-gray-300 mt-3 italic">
-                Note: Once we approve your request, we will signal our Merchant
-                of Record to reverse the transaction.
+                Note: Once we approve your request, we will initiate the refund
+                directly through Stripe.
               </p>
             </div>
 
@@ -79,18 +78,25 @@ export default function RefundPolicy() {
               <h2 className="text-2xl mb-4">5. Refund Processing Timeline</h2>
               <div className="space-y-3 text-gray-300">
                 <p>
-                  Once approved by our support team, the refund request is
-                  submitted to the Merchant of Record immediately.
+                  Once your refund request is approved by our support team, the
+                  refund is submitted to Stripe immediately. Stripe then submits
+                  the refund to your bank or card issuer right away. However,
+                  depending on your bank&apos;s processing time, it can take
+                  5–10 business days for the refund to appear on your
+                  statement.
                 </p>
                 <p>
-                  While we aim to process approvals within our system quickly,
-                  the actual funds typically return to your bank account within
-                  5-10 business days, depending on the Merchant of Record's
-                  processing times and your bank's policies.
+                  In some cases, if the refund is processed shortly after the
+                  original charge, it may appear as a reversal — meaning the
+                  original charge will simply disappear from your statement
+                  rather than showing as a separate credit. This is normal.
                 </p>
                 <p>
-                  WiseGave™ is not responsible for delays caused by banks,
-                  payment processors, or intermediary financial institutions.
+                  If you do not see the refund after 10 business days and the
+                  original charge is still showing on your statement, please
+                  contact your bank directly for more information. WiseGave AI is
+                  not responsible for delays caused by your bank or card
+                  issuer.
                 </p>
               </div>
             </div>
@@ -122,6 +128,11 @@ export default function RefundPolicy() {
                   • The subscription was cancelled without a refund request.
                 </li>
                 <li>• Usage violates WiseGave™ Terms of Service.</li>
+                <li>
+                  • Stripe&apos;s original processing fees on the transaction are
+                  non-refundable and will not be returned as part of the refund
+                  amount.
+                </li>
               </ul>
             </div>
 
