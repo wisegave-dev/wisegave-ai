@@ -7,83 +7,44 @@ import Link from "next/link";
 
 const faqs = [
   {
-    question: "What is WiseGave AI Employee?",
-    answer:
-      "WiseGave AI Employee is a virtual AI team member that answers calls, chats with leads, qualifies inquiries, and books appointments automatically, 24/7.",
-  },
-  {
-    question: "Who is this built for?",
-    answer:
-      "It is designed for US-based small and medium businesses that depend on inbound calls and messages, such as home services, clinics, agencies, and local service providers.",
-  },
-  {
-    question: "What problems does it solve?",
-    answer:
-      "It reduces missed calls, improves response time, lowers staffing costs, and ensures consistent lead follow-up without hiring extra staff.",
-  },
-  {
-    question: "What can the AI Employee do on day one?",
-    answer:
-      "It answers inbound calls, replies to chat and SMS, qualifies leads based on your rules, and books appointments directly into your calendar.",
-  },
-  // {
-  //   question: "How much does WiseGave AI Employee cost?",
-  //   answer: "WiseGave AI Employee costs $999 per month",
-  // },
-  // {
-  //   question: "What is included in the $999 per month?",
-  //   answer:
-  //     "Full AI Employee access, unlimited AI usage, Voice AI setup, Conversation AI setup, onboarding, and ongoing support.",
-  // },
-  {
-    question: "Are there any additional costs?",
-    answer:
-      "Yes. Phone numbers, calls, and SMS are charged based on actual carrier usage. AI usage is unlimited and not billed separately.",
-  },
-  {
-    question: "Do you lock customers into long-term contracts?",
-    answer:
-      "No. The subscription is month-to-month and can be canceled anytime.",
-  },
-  {
-    question: "Is the AI compliant with US regulations?",
-    answer:
-      "Yes. The system follows US telecom and messaging compliance standards, including consent-based communication.",
-  },
-  {
     question: "How long does setup take?",
     answer:
-      "Setup is completed in less than 48 hours after the demo and approval.",
+      "Everything is live within 5 business days. We handle the entire setup — you just answer a few questions about your business at the start and we do the rest.",
   },
   {
-    question: "Do I need technical knowledge to use this?",
+    question: "Do I need to do anything once it is live?",
     answer:
-      "No. WiseGave™ handles the full setup, configuration, and AI training.",
+      "No. Calls get answered, review requests go out, leads get followed up — all automatically. You receive a monthly report showing exactly what the system did. Your only job is the work you were already doing.",
   },
   {
-    question: "Do you offer a demo before purchase?",
+    question: "I already have a website. Do I need a new one?",
     answer:
-      "Yes. A live demo and use-case discussion are mandatory before onboarding.",
+      "If your current website is already generating booked jobs every week — you may not need ours. Most contractors we speak with have a website that exists but does not produce leads. If that is you, we replace it with one that does. We can look at your current site together on the demo call.",
   },
   {
-    question: "Where is WiseGave™ based?",
+    question: "Is there a long-term contract?",
     answer:
-      "WiseGave™ operates globally with an offshore operations team while serving US-based customers.",
+      "No. You pay monthly and can cancel anytime. We keep clients because the system delivers results — not because of contracts.",
   },
   {
-    question: "What kind of support do you provide?",
+    question: "What exactly is the guarantee?",
     answer:
-      "Onboarding support, AI optimization, troubleshooting, and continuous performance tuning.",
+      "If you do not get at least 5 new Google reviews and 3 new inbound leads within your first 30 days — you get 100% of your money back. No questions asked. One email.",
   },
   {
-    question: "What happens if the AI cannot handle a call or chat?",
+    question: "How does the Smart Receptionist work?",
     answer:
-      "You can set escalation rules so conversations are transferred to a human when needed.",
+      "It answers your inbound calls in your business name, handles common questions, books appointments into your calendar, and sends a follow-up text if a call is missed. It also handles your website live chat around the clock. From the customer's perspective — it sounds and behaves exactly like a professional front desk.",
   },
   {
-    question: "Can this scale for multiple locations?",
+    question: "What is the customer list reactivation?",
     answer:
-      "Yes. The system supports multiple locations, numbers, and calendars under one setup.",
+      "In week one we take your existing customer list and send automated review requests to everyone who has worked with you before. Most clients see their first new Google reviews within 48 hours. You see real results before the rest of the system is even fully live.",
+  },
+  {
+    question: "What businesses is this built for?",
+    answer:
+      "We work with home services businesses — HVAC, plumbing, electrical, roofing, and similar trades. If you have an existing customer base, get inbound calls, and want more Google reviews and booked jobs without hiring more staff — this system was built for you.",
   },
 ];
 

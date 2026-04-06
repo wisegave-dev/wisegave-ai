@@ -14,46 +14,40 @@ export function USPsSection() {
   const usps = [
     {
       icon: DollarSign,
-      title: "Cost Efficiency",
-      description:
-        "By automating various processes, businesses can save on employee costs and improve productivity significantly.",
-      color: "green",
+      title: 'Cost Efficiency',
+      description: 'By automating various processes, businesses can save on employee costs and improve productivity significantly.',
+      color: 'green'
     },
     {
       icon: Zap,
-      title: "Ease of Use",
-      description:
-        "Our Done-for-You AI Setup makes it easy for businesses to get started without technical expertise. We set up everything for you.",
-      color: "yellow",
+      title: 'Ease of Use',
+      description: 'Our Done-for-You AI Setup makes it easy for businesses to get started without technical expertise. We set up everything for you.',
+      color: 'yellow'
     },
     {
       icon: Clock,
-      title: "Launch in 48 Hours",
-      description:
-        "With the system set up within 48 hours, businesses can start experiencing the benefits of AI in a very short time.",
-      color: "blue",
+      title: 'Launch in 24 Hours',
+      description: 'With the system set up within 24 hours, businesses can start experiencing the benefits of AI in a very short time.',
+      color: 'blue'
     },
     {
       icon: Shield,
-      title: "No Long-Term Contracts",
-      description:
-        "Our flexible subscription model allows businesses to cancel anytime, offering them control over their usage.",
-      color: "purple",
+      title: 'No Long-Term Contracts',
+      description: 'Our flexible subscription model allows businesses to cancel anytime, offering them control over their usage.',
+      color: 'purple'
     },
     {
       icon: Users,
-      title: "Dedicated Success Manager",
-      description:
-        "Each customer will have a dedicated Success Manager who will assist in onboarding and provide support, ensuring smooth integration.",
-      color: "cyan",
+      title: 'Dedicated Success Manager',
+      description: 'Each customer will have a dedicated Success Manager who will assist in onboarding and provide support, ensuring smooth integration.',
+      color: 'cyan'
     },
     {
       icon: TrendingUp,
-      title: "100% Money Back Guarantee",
-      description:
-        "Risk-free trial with a full refund if customers are not satisfied. 30-day money-back guarantee.",
-      color: "red",
-    },
+      title: '100% Refund',
+      description: 'Risk-free trial with a full refund if customers are not satisfied. 7-day money-back guarantee.',
+      color: 'red'
+    }
   ];
 
   const colorClasses = {
@@ -109,6 +103,45 @@ export function USPsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl mb-4">
+            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">If it does not work</span> — you pay nothing.
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Here is our promise: within your first 30 days, your Smart Receptionist will answer calls and book jobs, your Reputation Engine will generate at least 5 new Google reviews from your existing customer list, and your Smart Website will capture at least 3 new inbound leads.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-4xl mx-auto bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 md:p-12 rounded-2xl border-2 border-white/20 backdrop-blur-lg"
+        >
+          <div className="text-center">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <Shield className="w-10 h-10 text-green-400" />
+              <h3 className="text-3xl">100% Money-Back Guarantee</h3>
+            </div>
+            
+            <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              If any one of those three things does not happen — you get <span className="text-white">100% of your money back</span>. No forms. No questions. No awkward conversations. One email and it is done.
+            </p>
+
+            <div className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 border border-blue-500/20 rounded-xl p-6 backdrop-blur-sm">
+              <p className="text-gray-200 italic">
+                We do not ask you to trust us. We ask you to let the results speak — and if they do not, you owe us nothing.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+        {/* <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl mb-4">
             Our{" "}
             <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               Guarantees
@@ -118,9 +151,9 @@ export function USPsSection() {
             We're committed to your success with industry-leading guarantees and
             support
           </p>
-        </motion.div>
+        </motion.div> */}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {usps.map((usp, index) => {
             const Icon = usp.icon;
             const colors = colorClasses[usp.color as keyof typeof colorClasses];

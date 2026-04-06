@@ -27,41 +27,35 @@ export function CustomerJourneySection() {
     {
       number: 1,
       icon: Calendar,
-      title: "Book a Demo",
-      description:
-        "See WiseGave AI Employee's features in context of your specific business needs",
-      details:
-        "Schedule a personalized demo where we showcase how our AI can transform your specific business operations.",
-      color: "blue",
+      title: 'Book a free demo call',
+      description: 'We show you exactly how the system works for your specific business.',
+      details: '15 minutes. No pitch. No pressure.',
+      color: 'blue'
     },
     {
       number: 2,
       icon: Wrench,
-      title: "Integrate in 48 Hours",
-      description:
-        "Our team sets up everything for you - no technical expertise required",
-      details:
-        "Done-for-you setup includes AI configuration, workflow integration, and comprehensive testing.",
-      color: "purple",
+      title: 'We build everything for you',
+      description: 'You answer a few questions about your business. We handle the entire setup.',
+      details: 'Your Smart Receptionist, your Reputation Engine, your Smart Website. Nothing for you to install, learn, or manage.',
+      color: 'purple'
     },
     {
       number: 3,
       icon: UserCheck,
-      title: "Verify Your Account",
-      description: "Complete a quick verification process to ensure your account is secure",
-      details:
-        "Verify your account with a simple process to ensure security and compliance.",
-      color: "green",
+      title: 'Week 1: your list goes live',
+      description: 'Before anything else is even fully live, we send review requests to your existing customer list.',
+      details: 'Most clients see their first new Google reviews within 48 hours. You see ROI in week one.',
+      color: 'cyan'
     },
     {
       number: 4,
       icon: TrendingUp,
-      title: "Scale & Grow",
-      description: "Watch your revenue grow while reducing employee costs",
-      details:
-        "Maximize output while minimizing costs. Scale operations without adding headcount.",
-      color: "cyan",
-    },
+      title: 'The loop runs itself',
+      description: 'From day 5, your system is live. Calls get answered. Jobs get booked. Reviews get collected.',
+      details: 'Leads come in. You get a monthly report showing exactly what happened. You do nothing except the work you were already doing.',
+      color: 'green'
+    }
   ];
 
   const colorClasses = {
@@ -102,10 +96,7 @@ export function CustomerJourneySection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl mb-4">
-            Your Journey to{" "}
-            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              AI Success
-            </span>
+          Live in 5 days. Zero work on your end.
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             From setup to success in just 4 simple steps
@@ -208,16 +199,18 @@ export function CustomerJourneySection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-16 text-center"
         >
-          <Link
-            href="/book-demo"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-white text-black px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-lg group hover:shadow-2xl hover:shadow-white/20"
-          >
-            Start Your Journey Today
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-          {/* <p className="mt-4 text-gray-400">
-            Join 785+ businesses already transforming with WiseGave AI
-          </p> */}
+          <div className="flex flex-col items-center gap-4">
+            <Link
+              href="/book-demo"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-white text-black px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-lg group hover:shadow-2xl hover:shadow-white/20"
+            >
+              Start Your Journey Today
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            {/* <p className="text-sm text-gray-400 text-center max-w-md">
+              Join 1000+ businesses already transforming with WiseGave AI
+            </p> */}
+          </div>
         </motion.div>
       </div>
     </section>

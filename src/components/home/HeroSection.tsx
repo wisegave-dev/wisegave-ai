@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Bot, MessageSquare, TrendingUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -64,9 +64,8 @@ export function HeroSection() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 border border-blue-500/30 rounded-full mb-8 backdrop-blur-sm"
           >
-            <Bot className="w-5 h-5 text-blue-400" />
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              AI-Powered Business Automation
+              For home services businesses ready to grow
             </span>
           </motion.div>
 
@@ -75,12 +74,12 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-5xl md:text-7xl mb-6 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent"
+            className="text-5xl md:text-7xl mb-6 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent leading-tight"
           >
-            Transform Your Business with
+            Stop losing jobs you
             <br />
             <span className="bg-gradient-to-r from-gray-100 via-white to-gray-100 bg-clip-text text-transparent">
-              WiseGave AI
+              never knew you lost.
             </span>
           </motion.h1>
 
@@ -89,68 +88,31 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed"
+            className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed"
           >
-            At WiseGave AI, we believe in transforming the way businesses
-            interact with their customers. Our suite of AI-powered solutions
-            streamlines operations, engages customers effectively, and drives
-            growth without increasing overhead costs.
+            WiseGave™ gives home services businesses a fully managed growth
+            system — more calls answered, more 5-star reviews, more booked jobs —
+            without hiring anyone or doing any of the work yourself.
           </motion.p>
-
-          {/* Value Props */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex flex-wrap justify-center gap-8 mb-12"
-          >
-            <div className="flex items-center gap-2 text-gray-300">
-              <MessageSquare className="w-5 h-5 text-white" />
-              <span>24/7 Customer Engagement</span>
-            </div>
-            <div className="flex items-center gap-2 text-gray-300">
-              <TrendingUp className="w-5 h-5 text-white" />
-              <span>Scale Without Limits</span>
-            </div>
-            <div className="flex items-center gap-2 text-gray-300">
-              <Bot className="w-5 h-5 text-white" />
-              <span>AI-Powered Automation</span>
-            </div>
-          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col items-center gap-4"
           >
             <Link
               href="/book-demo"
-              className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-white to-gray-200 text-black px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-white/20"
+              className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-white to-gray-200 text-black px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-white/20 text-lg"
             >
-              Book a Demo
+              See how it works for your business
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <a
-              href="#products"
-              className="inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-lg border border-white/20 transition-all duration-300 backdrop-blur-sm"
-            >
-              Explore Solutions
-            </a>
-          </motion.div>
 
-          {/* Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.1, duration: 0.8 }}
-            className="mt-16 text-gray-400 text-sm"
-          >
-            <p>Join Service Businesses Already Automating with AI</p>
-            <p className="mt-2">
-              ✓ 100% Money Back Guarantee • ✓ Launch in 48 Hours • ✓ No
-              Long-Term Contracts
+            {/* Below-button trust line */}
+            <p className="text-sm text-gray-400">
+              Free 15-minute demo. No contracts. 100% money-back guarantee.
             </p>
           </motion.div>
         </motion.div>
